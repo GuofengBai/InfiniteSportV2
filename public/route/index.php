@@ -283,4 +283,29 @@ $app->get('/api/user/{id}/weekly_rank/', function (Request $request, Response $r
 
     return $response;
 });
+$app->get('/api/user/{id}/Messages/unread/', function (Request $request, Response $response,$args) {
+    $id=$args['id'];
+    $controller = new chat_controller();
+    $response->getBody()->write($controller->getUnreadNumber($id));
+
+    return $response;
+});
+$app->get('/api/user/{oid}/messages/{fid}/', function (Request $request, Response $response,$args) {
+    $oid=$args['oid'];
+    $fid=$args['fid'];
+    $controller = new chat_controller();
+    $response->getBody()->write($controller->getMessages($oid,$fid));
+
+    return $response;
+});
+$app->post('/api/user/{oid}/messages/{fid}/', function (Request $request, Response $response,$args) {
+    $oid=$args['oid'];
+    $fid=$args['fid'];
+    $data=$request->getParsedBody();
+    $content = filter_var($data['content'], FILTER_SANITIZE_STRING);
+    $controller = new chat_controller();
+    $response->getBody()->write($controller->send($oid,$fid,$content));
+
+    return $response;
+});
 $app->run();
