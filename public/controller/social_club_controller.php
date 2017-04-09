@@ -18,7 +18,7 @@ class social_club_controller
     }
 
     function getFollowing($id){
-        $query = "select id,name,profile,email,level,exp from user U,social_club S where S.ownerid='$id' and S.followingid=U.id";
+        $query = "select id,name,profile,email,level,exp,location,job from user U,social_club S where S.ownerid='$id' and S.followingid=U.id";
         $statement = $this->db->find($query);
         $result = array();
         while($row=$statement->fetchArray(SQLITE3_ASSOC)){
