@@ -5,8 +5,8 @@
  * Date: 2016/11/29
  * Time: 10:54
  */
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 require '../../vendor/autoload.php';
 require_once '../controller/user_controller.php';
@@ -80,6 +80,26 @@ $app->get('/api/user/{id}', function (Request $request, Response $response,$args
 
     return $response;
 });
+$app->post('/api/user/{id}/Avatar/', function (Request $request, Response $response, $args) use ($app) {
+
+    $id = $args['id'];
+    $target_dir = "../images/avatar/";
+    $filename = basename($_FILES['image']['name']);
+    $file_ext = strtolower(substr($filename, strrpos($filename, '.') + 1));
+    $target_file = $target_dir . $id . $file_ext;
+
+    $check = getimagesize($_FILES['avatar']['tmp_name']);
+    if ($check !== false) {
+        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+            $response->getBody()->write("<script>alert('更换头像成功！'); history.go(-1);</script>");
+        } else {
+            echo "上传失败";
+        }
+    } else {
+        $response->getBody()->write("<script>alert('您上传的不是图片：（'); history.go(-1);</script>");
+    }
+});
+
 $app->get('/api/activity/', function (Request $request, Response $response) {
     $controller = new activity_controller();
     $response->getBody()->write($controller->getAllActivity());
