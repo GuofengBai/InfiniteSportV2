@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -690,9 +699,17 @@
                                     class="fa fa-circle text-success m-left-xs font-14"></i></div>
 
                             <div class="m-top-sm">
+                                <div>
+                                    <i class="fa fa-map-marker user-profile-icon" id="l_location"></i>
+                                    美国华盛顿白宫
+                                </div>
 
+                                <div class="m-top-sm" id="l_job">
+                                    <i class="fa fa-briefcase user-profile-icon"></i>
+                                    总统
+                                </div>
 
-                                <div class="m-top-sm">
+                                <div class="m-top-sm" id="l_email">
                                     <i class="fa fa-external-link user-profile-icon"></i>
                                     www.donaldjtrump.com
                                 </div>
@@ -893,68 +910,6 @@
                                     <div class="tab-pane fade" id="profileTab3">
                                         <div class="profile-follower-list clearfix">
                                             <ul id="following_list">
-                                                <li>
-                                                    <div class="panel panel-default clearfix">
-                                                        <div class="panel-body">
-                                                            <div class="user-wrapper">
-                                                                <div class="user-avatar">
-                                                                    <img class="small-img img-circle img-thumbnail"
-                                                                         src="images/profile/profile2.jpg" alt="">
-                                                                </div>
-                                                                <div class="user-detail small-img">
-                                                                    <div class="font-16">Karen Martin</div>
-                                                                    <small class="block text-muted font-12">Web
-                                                                        Designer
-                                                                    </small>
-
-
-                                                                    <div class="m-top-sm">
-                                                                        <button type="button"
-                                                                                class="btn btn-default btn-sm marginTB-xs"
-                                                                                disabled="" data-toggle="modal">
-                                                                            following
-                                                                        </button>
-                                                                        <button type="button"
-                                                                                class="btn btn-success btn-sm marginTB-xs"
-                                                                                data-toggle="modal">View Profile
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!-- ./user-wrapper -->
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-
-                                                <li>
-                                                    <div class="panel panel-default clearfix">
-                                                        <div class="panel-body">
-                                                            <div class="user-wrapper">
-                                                                <div class="user-avatar">
-                                                                    <img class="small-img img-circle img-thumbnail"
-                                                                         src="images/profile/profile4.jpg" alt="">
-                                                                </div>
-                                                                <div class="user-detail small-img">
-                                                                    <div class="font-16">Jame Smith</div>
-                                                                    <small class="block text-muted font-12">Programmer
-                                                                    </small>
-
-
-                                                                    <div class="m-top-sm">
-                                                                        <button type="button"
-                                                                                class="btn btn-primary btn-sm marginTB-xs"
-                                                                                data-toggle="modal">follow
-                                                                        </button>
-                                                                        <button type="button"
-                                                                                class="btn btn-success btn-sm marginTB-xs"
-                                                                                data-toggle="modal">View Profile
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!-- ./user-wrapper -->
-                                                        </div>
-                                                    </div>
-                                                </li>
 
 
                                             </ul>
@@ -1027,12 +982,12 @@
     });
 </script>
 <script>
-    id = $("#id").text();
-    $.ajax("/api/user/" + id + "/following/", {
+    $.ajax("/api/user/axy14/following/", {
         type: 'GET',
         async: false,
         datatype: 'json',
         success: function (result) {
+
             data = JSON.parse(result);
             for (i = 0; i < data.length; i++) {
                 $.ajax("/api/user/" + data[i].id, {
@@ -1041,19 +996,15 @@
                     datatype: 'json',
                     success: function (td) {
                         temp = JSON.parse(td);
-                        var tb = "<li>" +
-                            "<div class=\"panel panel-default clearfix\" >" +
-                            "<div class=\"panel-body\">" +
-                            "<div class=\"user-wrapper\">" +
-                            "<div class=\"user-avatar\">" +
-                            "<img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\">" +
-                            "</div> <div class=\"user-detail small-img\">" +
-                            "<div class=\"font-16\">Jame Smith</div>" +
-                            " <div class=\"m-top-sm\">" +
-                            "<button type=\"button\" class=\"btn btn-primary btn-sm marginTB-xs\" data-toggle=\"modal\">follow </button>" +
-                            "<button type=\"button\" class=\"btn btn-success btn-sm marginTB-xs\" data-toggle=\"modal\">View Profile  </button>" +
-                            "</div></div></div>";
-                        $("#following_list").appendChild(tb);
+                        var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
+                            "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                            "<div class=\"font-16\">" + temp.name + "</div>" +
+                            "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
+                            "<div class=\"m-top-sm\">" +
+
+                            "<button type=\"button\" class=\"btn btn-success btn-sm marginTB-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid=" + temp.id + "\">View Profile</a></button>" +
+                            "</div> </div> </div> </div> </div>" + "</li>";
+                        $("#following_list").append(tb);
                     }
                 });
             }
