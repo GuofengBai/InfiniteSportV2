@@ -83,7 +83,7 @@ $app->get('/api/user/{id}', function (Request $request, Response $response,$args
 $app->post('/api/user/{id}/Avatar/', function (Request $request, Response $response, $args) use ($app) {
 
     $id = $args['id'];
-    $target_dir = "../images/avatar/";
+    $target_dir = "/images/avatar/";
     $filename = basename($_FILES['image']['name']);
     $file_ext = strtolower(substr($filename, strrpos($filename, '.') + 1));
     $target_file = $target_dir . $id . $file_ext;
