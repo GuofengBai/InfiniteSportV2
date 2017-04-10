@@ -1066,7 +1066,7 @@
             $("#l_profile").append(data.profile);
             $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
             $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
-            $('#l_avatar').append("<img src=\"images/avatar/" + data.id + ".jpg\" />");
+            $('#l_avatar').append("<img src="+data.avatar+">");
 
         }
     });
@@ -1091,6 +1091,7 @@
             }
         });
     });
+    $("#submit").on
 </script>
 <script>
     id = $("#id").text();

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9e4aac1-4c0a-4a0f-abca-b1e704d4e0ee" name="Default" comment="">
+    <list default="true" id="c9e4aac1-4c0a-4a0f-abca-b1e704d4e0ee" name="Default" comment="dashboard">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/profile_new.html" afterPath="$PROJECT_DIR$/public/profile_new.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/route/index.php" afterPath="$PROJECT_DIR$/public/route/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/uploadTest.html" afterPath="$PROJECT_DIR$/public/uploadTest.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web.db" afterPath="$PROJECT_DIR$/web.db" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,17 +37,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile_new.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/profile_new.html">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/route/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="1068" column="79" lean-forward="false" selection-start-line="1068" selection-start-column="79" selection-end-line="1068" selection-end-column="79" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1491824119073" expanded="true" signature="56061:56075" ph="..." />
-              </folding>
+            <state relative-caret-position="364">
+              <caret line="110" column="55" lean-forward="true" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,18 +51,28 @@
         <entry file="file://$PROJECT_DIR$/public/uploadTest.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="13" selection-end-column="7" />
+              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/route/index.php">
+      <file leaf-file-name="user_controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controller/user_controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="83" column="20" lean-forward="false" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="-1932">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491822540612" expanded="true" signature="330:388" ph="select * fro... user" />
+                <marker date="1491822540612" expanded="true" signature="944:1012" ph="select id,na... user" />
+                <marker date="1491822540612" expanded="true" signature="1285:1494" ph="select id,na... user" />
+                <marker date="1491822540612" expanded="true" signature="1688:1949" ph="select id,na... user" />
+                <marker date="1491822540612" expanded="true" signature="2237:2354" ph="insert into user... " />
+                <marker date="1491822540612" expanded="true" signature="2658:2754" ph="update user " />
+                <marker date="1491822540612" expanded="true" signature="3037:3084" ph="update user " />
+                <marker date="1491822540612" expanded="true" signature="3371:3424" ph="select * fro... user" />
+                <marker date="1491822540612" expanded="true" signature="3565:3611" ph="update user " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,9 +197,9 @@
         <option value="$PROJECT_DIR$/public/user_specific.html" />
         <option value="$PROJECT_DIR$/public/user_search.html" />
         <option value="$PROJECT_DIR$/public/my_setting.html" />
-        <option value="$PROJECT_DIR$/public/uploadTest.html" />
-        <option value="$PROJECT_DIR$/public/route/index.php" />
         <option value="$PROJECT_DIR$/public/profile_new.html" />
+        <option value="$PROJECT_DIR$/public/route/index.php" />
+        <option value="$PROJECT_DIR$/public/uploadTest.html" />
       </list>
     </option>
   </component>
@@ -300,6 +308,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfiniteSportV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfiniteSportV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="avatar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfiniteSportV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InfiniteSportV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,11 +892,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491823953166</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dashboard">
+      <created>1491824491204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1491824491204</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23868000" />
+    <option name="totallyTimeSpent" value="24412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1052" extended-state="0" />
@@ -1214,6 +1269,37 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/controller/user_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1932">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491822540612" expanded="true" signature="330:388" ph="select * fro... user" />
+            <marker date="1491822540612" expanded="true" signature="944:1012" ph="select id,na... user" />
+            <marker date="1491822540612" expanded="true" signature="1285:1494" ph="select id,na... user" />
+            <marker date="1491822540612" expanded="true" signature="1688:1949" ph="select id,na... user" />
+            <marker date="1491822540612" expanded="true" signature="2237:2354" ph="insert into user... " />
+            <marker date="1491822540612" expanded="true" signature="2658:2754" ph="update user " />
+            <marker date="1491822540612" expanded="true" signature="3037:3084" ph="update user " />
+            <marker date="1491822540612" expanded="true" signature="3371:3424" ph="select * fro... user" />
+            <marker date="1491822540612" expanded="true" signature="3565:3611" ph="update user " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/profile_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1068" column="51" lean-forward="true" selection-start-line="1068" selection-start-column="51" selection-end-line="1068" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1491824664541" expanded="true" signature="56061:56075" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/avatar/axy14.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1222,29 +1308,16 @@
     <entry file="file://$PROJECT_DIR$/public/uploadTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="13" selection-end-column="7" />
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/route/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="83" column="20" lean-forward="false" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+        <state relative-caret-position="364">
+          <caret line="110" column="55" lean-forward="true" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/profile_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="1068" column="79" lean-forward="false" selection-start-line="1068" selection-start-column="79" selection-end-line="1068" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1491824119073" expanded="true" signature="56061:56075" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
