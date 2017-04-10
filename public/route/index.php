@@ -107,6 +107,7 @@ $app->post('/api/user/{id}/avatar/', function (Request $request, Response $respo
     }
     move_uploaded_file($_FILES["avatar"]["tmp_name"],
             "../images/avatar/".$id.$ext);
+    $controller = new user_controller($id,"images/avatar/".$id.$ext);
     $response->getBody()->write(json_encode(array("status"=>"succeeded","message"=>"更换头像成功！！！")));
 });
 
