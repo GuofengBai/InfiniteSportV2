@@ -107,7 +107,7 @@ if(!isset($_SESSION['id'])){
                         var ty=0;
                         if(uid==data.creator){
                             ty=1;
-                            $("#submit").html("<i class=\"fa fa-trash-o\"></i>&nsp删除活动");
+                            $("#submit").html("<i class=\"fa fa-trash-o\"></i>&nbsp删除活动");
                             $("#submit").addClass("btn-danger");
                             $("#submit").on("click",function () {
                                 $.ajax("/api/activity/"+aid, {
@@ -136,7 +136,7 @@ if(!isset($_SESSION['id'])){
                                     }
                                 }
                                 if(ty==2){
-                                    $("#submit").html("<i class=\"fa fa-sign-out\"></i>&nsp退出活动");
+                                    $("#submit").html("<i class=\"fa fa-sign-out\"></i>&nbsp退出活动");
                                     $("#submit").addClass("btn-warning");
                                     $("#submit").on("click",function () {
                                         $.ajax("/api/user/"+uid+"/activity/"+aid, {
@@ -148,7 +148,7 @@ if(!isset($_SESSION['id'])){
                                         });
                                     });
                                 }else if(ty==3){
-                                    $("#submit").html("<i class=\"fa fa-sign-in\"></i>&nsp加入活动");
+                                    $("#submit").html("<i class=\"fa fa-sign-in\"></i>&nbsp加入活动");
                                     $("#submit").addClass("btn-success");
                                     $("#submit").on("click",function () {
                                         $.ajax("/api/user/"+uid+"/activity/", {
