@@ -1028,7 +1028,7 @@ if(!isset($_SESSION['id'])){
                             if(data.status=="false"){
                                 alert(data.detail);
                             }else{
-                                window.location.href="user_specific.html?uid="+uid;
+                                window.location.href="user_specific.php?uid="+uid;
                             }
                         }
                     });
@@ -1041,7 +1041,7 @@ if(!isset($_SESSION['id'])){
                         data: {followingid:uid},
                         async:false,
                         success: function (result) {
-                            window.location.href="user_specific.html?uid="+uid;
+                            window.location.href="user_specific.php?uid="+uid;
                         }
                     });
                 });
