@@ -805,7 +805,7 @@ if(!isset($_SESSION['id'])){
             old_password:ops,
             new_password:nps
         };
-        $.ajax("/api/user/axy14/password", {
+        $.ajax("/api/user/"+id+"/password", {
             type: 'PUT',
             async:false,
             data:val,
