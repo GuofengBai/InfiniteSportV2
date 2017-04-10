@@ -54,6 +54,7 @@
 <!-- Simplify -->
 <script src="js/simplify/simplify.js"></script>
 <script src="js/simplify/simplify_dashboard.js"></script>
+<script src="js/echarts.min.js"></script>
 
 <script>
 	
@@ -84,7 +85,7 @@
 
     $.ajax("/api/user/"+id, {
         type: 'GET',
-        async: false,
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -94,7 +95,7 @@
 
     $.ajax("/api/user/"+id+"/messages/unread/", {
         type: 'GET',
-        async: false,
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);

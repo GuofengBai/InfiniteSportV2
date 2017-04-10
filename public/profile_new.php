@@ -588,7 +588,7 @@ if(!isset($_SESSION['id'])){
                         </a>
                         <ul class="submenu">
                             <li><a href="signin.html"><span class="submenu-label">Sign in</span></a></li>
-                            <li><a href="signup.html"><span class="submenu-label">Sign Up</span></a></li>
+                            <li><a href="sign_up.html"><span class="submenu-label">Sign Up</span></a></li>
                             <li><a href="lockscreen.html"><span class="submenu-label">Lock Screen</span></a></li>
                             <li class="active"><a href="profile.html"><span class="submenu-label">Profile</span></a>
                             </li>

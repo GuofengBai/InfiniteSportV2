@@ -22,9 +22,9 @@
             <p class="text-intro">一起加入Infinite Sport运动社交吧！！！</p>
             <form action="/" method="post">
               <ul class="flexblock">
-                <li><input type="text" tabindex="1" name="userid" placeholder="账号" required></li>
-                <li><input type="password" tabindex="2" name="password" placeholder="密码" required></li>
-                <li><button id="submit" class="radius" tabindex="3" title="Sign In">登录 &rsaquo;</button></li>
+                <li><input type="text" id="userid" placeholder="账号" required></li>
+                <li><input type="password" id="password" placeholder="密码" required></li>
+                <li><button id="submit" class="radius">登录 &rsaquo;</button></li>
               </ul>
             </form>
           </div>
@@ -79,6 +79,7 @@
                 id: $("#userid").val(),
                 password: $("#password").val()
             };
+            alert(val.id+"  "+val.password);
             $.ajax("/api/login", {
                 type: 'POST',
                 data: val,
