@@ -13,6 +13,7 @@ require_once '../controller/user_controller.php';
 require_once '../controller/activity_controller.php';
 require_once '../controller/sports_controller.php';
 require_once '../controller/social_club_controller.php';
+require_once '../controller/chat_controller.php';
 
 $app = new \Slim\App;
 $app->post('/api/login', function (Request $request, Response $response) {
@@ -315,7 +316,7 @@ $app->get('/api/user/{id}/weekly_rank/', function (Request $request, Response $r
 
     return $response;
 });
-$app->get('/api/user/{id}/Messages/unread/', function (Request $request, Response $response,$args) {
+$app->get('/api/user/{id}/messages/unread/', function (Request $request, Response $response,$args) {
     $id=$args['id'];
     $controller = new chat_controller();
     $response->getBody()->write($controller->getUnreadNumber($id));

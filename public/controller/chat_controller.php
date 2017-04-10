@@ -11,7 +11,7 @@
  * Time: 19:07
  */
 require_once "database.php";
-class chat{
+class chat_controller{
 
     var $db;
 
