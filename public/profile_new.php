@@ -1041,7 +1041,7 @@ if(!isset($_SESSION['id'])){
                             "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                             "<div class=\"m-top-sm\">" +
 
-                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=" + temp.id + "\"user_specific.php?uid=\" style='color: inherit'>进入首页</a></button>" +
+                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid="+ temp.id + "\" style='color: inherit'>进入首页</a></button>" +
                             "</div> </div> </div> </div> </div>" + "</li>";
                         $("#following_list").append(tb);
                     }
