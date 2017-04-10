@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
   	<head>
 	    <meta charset="utf-8">
-	    <title>Simplify Admin</title>
+	    <title>Infinite Sport</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
@@ -26,18 +26,21 @@
 			<div class="sign-in-wrapper">
 				<div class="sign-in-inner">
 					<div class="login-brand text-center">
-						<i class="fa fa-database m-right-xs"></i> Simplify <strong class="text-skin">Admin</strong>
+						<i class="fa fa-database m-right-xs"></i> Infinite <strong class="text-skin">Sport</strong>
 					</div>
 
 					<form>
 						<div class="form-group m-bottom-md">
-							<input type="text" class="form-control" placeholder="Email Address">
+							<input type="text" id="userid" class="form-control" placeholder="账户名">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="Password">
+							<input type="password" id="password" class="form-control" placeholder="密码">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="Confirm Password">
+							<input type="password" id="passwordAgain" class="form-control" placeholder="确认密码">
+						</div>
+						<div class="form-group">
+							<input type="text" id="username" class="form-control" placeholder="昵称">
 						</div>
 						<div class="form-group">
 							<div class="custom-checkbox">
@@ -48,12 +51,12 @@
 						</div>
 
 						<div class="m-top-md p-top-sm">
-							<a href="#" class="btn btn-success block">Create an accounts</a>
+							<button id="submit" class="btn btn-success block">注册</button>
 						</div>
 
 						<div class="m-top-md p-top-sm">
-							<div class="font-12 text-center m-bottom-xs">Already have an account?</div>
-							<a href="signin.html" class="btn btn-default block">Sign In</a>
+							<div class="font-12 text-center m-bottom-xs">已经注册过账号？</div>
+							<a href="index.html" class="btn btn-default block">登录</a>
 						</div>
 					</form>
 				</div><!-- ./sign-in-inner -->
@@ -83,6 +86,28 @@
 		
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
-	
+		
+		<script>
+
+            $("#submit").click(function () {
+                val = {
+                    id: $("#userid").val(),
+                    name: $("#username").val(),
+                    password: $("#password").val()
+                };
+                $.ajax("/api/user/", {
+                    type: 'POST',
+                    data: val,
+                    dataType: 'json',
+                    success: function (result) {
+                        if(result.status=="ok"){
+                            window.location.href="index.html";
+                        }else{
+                            alert("注册失败");
+                        }
+                    }
+                });
+            });
+		</script>
   	</body>
 </html>
