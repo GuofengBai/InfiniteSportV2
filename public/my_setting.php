@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -670,167 +679,53 @@
     <div class="main-container">
         <div class="padding-md">
             <h3 class="header-text m-bottom-md">
-                TA的主页
+                我的设定
 
             </h3>
 
-            <div class="row user-profile-wrapper">
-                <div class="col-md-3 user-profile-sidebar m-bottom-md">
-                    <div class="row">
-                        <div class="col-sm-4 col-md-12">
-                            <div class="user-profile-pic">
-                                <img src="images/profile/trump.jpg" alt="">
-                                <div class="ribbon-wrapper">
 
-                                </div>
-                            </div>
+            <div class="col-md-12">
+
+                <form class="form-horizontal m-top-md">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">旧密码&ensp;&ensp;&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="ops" id="ops" type="password" class="form-control"
+                                   value=""  style="width: 60%">
                         </div>
-                        <div class="col-sm-6 col-md-12" style="font-size: 1.5rem">
-                            <div class="user-name m-top-sm" id="l_name"></div>
-
-                            <div class="m-top-sm">
-                                <a id="l_location">
-
-                                </a>
-
-                                <div class="m-top-sm" id="l_job">
-
-                                </div>
-
-                                <div class="m-top-sm" id="l_email">
-
-                                </div>
-                            </div>
-
-
-                            <h4 class="m-top-md m-bottom-sm">关于TA</h4>
-                            <p class="m-top-sm" id="l_profile">
-
-                            <p>
-
-
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">新密码&ensp;&ensp;&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="nps" id="nps" type="password" class="form-control"
+                                   value=""  style="width: 60%">
                         </div>
-                    </div><!-- ./row -->
-                </div><!-- ./col -->
-                <div class="col-md-9">
-                    <div class="smart-widget">
-                        <div class="smart-widget-inner">
 
-                            <div class="smart-widget-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane fade in active" id="profileTab1">
-                                        <h4 class="header-text m-bottom-md">
-                                            TA的运动
-                                        </h4>
-                                        <div class="row" style="font-size: 1.5rem">
-                                            <div class="col-sm-3 col-sm-6s">
-                                                <div class="widget-stat3 bg-danger">
-                                                    <div class="widget-stat-icon">
-                                                        <i class="fa fa-fire fa-2x"></i>
-                                                    </div>
-                                                    <div class="text-upper">燃烧卡路里</div>
-                                                    <div class="text-center" id="t_calorie"></div>
-                                                </div>
-                                            </div><!-- ./col -->
-                                            <div class="col-sm-3 col-sm-6s">
-                                                <div class="widget-stat3 bg-warning">
-                                                    <div class="widget-stat-icon">
-                                                        <i class="fa fa-retweet fa-2x"></i>
-                                                    </div>
-                                                    <div class="text-upper">运动总步数</div>
-                                                    <div class="text-center" id="t_steps"></div>
-                                                </div>
-                                            </div><!-- ./col -->
-                                            <div class="col-sm-3 col-sms-6">
-                                                <div class="widget-stat3 bg-info">
-                                                    <div class="widget-stat-icon">
-                                                        <i class="fa fa-location-arrow fa-2x"></i>
-                                                    </div>
-                                                    <div class="text-upper">运动总距离</div>
-                                                    <div class="text-center" id="t_miles"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 col-sm-6s">
-                                                <div class="widget-stat3 bg-primary">
-                                                    <div class="widget-stat-icon">
-                                                        <i class="fa fa-clock-o fa-2x"></i>
-                                                    </div>
-                                                    <div class="text-upper">运动总天数</div>
-                                                    <div class="text-center" id="t_days"></div>
-                                                </div>
-                                            </div>
-                                        </div><!-- ./row -->
-
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <h4 class="m-top-md">TA的活动</h4>
-
-                                                <div class="row m-top-md">
-                                                    <div class="col-sm-6">
-                                                        <div class="widget-stat3 bg-primary">
-                                                            <div class="widget-stat-icon">
-                                                                <i class="fa fa-circle-o fa-3x"></i>
-                                                            </div>
-                                                            <div class="text-upper">参加的活动</div>
-                                                            <div class="text-center" id="a_join"></div>
-                                                        </div>
-                                                    </div><!-- ./col -->
-                                                    <div class="col-sm-6">
-                                                        <div class="widget-stat3 bg-info">
-                                                            <div class="widget-stat-icon">
-                                                                <i class="fa fa-spinner fa-3x"></i>
-                                                            </div>
-                                                            <div class="text-upper">进行的活动</div>
-                                                            <div class="text-center" id="a_uncomplete"></div>
-                                                        </div>
-                                                    </div><!-- ./col -->
-                                                </div>
-                                            </div><!-- ./col -->
-                                            <div class="col-lg-6">
-                                                <h4 class="m-top-md">朋友圈</h4>
-
-                                                <div class="row m-top-md">
-                                                    <div class="col-sm-6">
-                                                        <div class="widget-stat3 bg-primary">
-                                                            <div class="widget-stat-icon">
-                                                                <i class="fa fa-users fa-3x"></i>
-                                                            </div>
-                                                            <div class="text-upper">好友数</div>
-                                                            <div class="text-center" id="w_number"></div>
-                                                        </div>
-                                                    </div><!-- ./col -->
-                                                    <div class="col-sm-6">
-                                                        <div class="widget-stat3 bg-info">
-                                                            <div class="widget-stat-icon">
-                                                                <i class="fa fa-signal fa-3x"></i>
-                                                            </div>
-                                                            <div class="text-upper">朋友圈排名</div>
-                                                            <div class="text-center" id="w_rank"></div>
-                                                        </div>
-                                                    </div><!-- ./col -->
-                                                </div>
-                                                <div class="panel panel-default m-top-md">
-                                                    <div class="panel-heading">
-                                                        <i class="fa fa-twitter"></i> 周排名
-                                                    </div>
-                                                    <ul class="list-group" id="friend_rank">
-
-                                                    </ul><!-- /list-group -->
-                                                </div><!-- ./panel -->
+                    </div>
 
 
-                                            </div><!-- ./col -->
-                                        </div><!-- ./row -->
-                                    </div><!-- ./tab-pane -->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">确认密码&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="nnps" id="nnps" type="password" class="form-control"
+                                   value="" style="width: 60%" >
+                        </div>
+                    </div>
 
-                                </div><!-- ./tab-content -->
-                            </div><!-- ./smart-widget-body -->
-                        </div><!-- ./smart-widget-inner -->
-                    </div><!-- ./smart-widget -->
-                </div>
+
+
+                    <div class="form-group m-top-lg">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-info m-left-xs" id="submit">保存</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div><!-- ./padding-md -->
-    </div><!-- /main-container -->
+        </div>
+    </div><!-- ./padding-md -->
+</div><!-- /main-container -->
 </div><!-- /wrapper -->
 
 <a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
@@ -891,98 +786,40 @@
 </script>
 
 <script>
-    $.ajax("/api/user/cjh14", {
-        type: 'GET',
-        async: false,
-        datatype: 'json',
-        success: function (result) {
 
-            data = JSON.parse(result);
 
-            $("#l_name").append(data.name + "<i class=\"fa fa-circle text-success m-left-xs font-14\"></i>");
-            $("#l_email").append("<i class=\"fa fa-external-link user-profile-icon\"></i>" + data.email);
-            $("#l_profile").append(data.profile);
-            $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
-            $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
+    $("#submit").on("click",function () {
+        ops=$("#ops").val();
+        nps=$("#nps").val();
+        nnps=$("#nnps").val();
+        if(ops==""||nps==""||nnps==""){
+            alert("密码不能为空");
+            return;
+        }
+        if(nps!=nnps){
+            alert("两次输入密码不一致");
+            return;
+        }
 
-        }
-    });
-
-</script>
-<script>
-    id = $("#id").text();
-    $.ajax("/api/user/cjh14/sport_record_total", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            $("#t_steps").html(data.t_steps);
-            $("#t_miles").html(data.t_miles);
-            $("#t_calorie").html(data.t_calorie);
-        }
-    });
-    $.ajax("/api/user/cjh14/sport_days", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            $("#t_days").html(data.t_days);
-        }
-    });
-    $.ajax("/api/user/cjh14/activity_todo/", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            $("#a_uncomplete").html(data.length);
-        }
-    });
-    $.ajax("/api/user/cjh14/activity/", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            $("#a_join").html(data.length);
-        }
-    });
-    $.ajax("/api/user/cjh14/following/", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            $("#w_number").html(data.length);
-        }
-    });
-    $.ajax("/api/user/cjh14/weekly_rank/", {
-        type: 'GET',
-        datatype: 'json',
-        success: function (result) {
-            data = JSON.parse(result);
-            for (i = 0; i < data.length; i++) {
-                var td="<li><p>"+
-                        data.id+"</p></li>";
-                $("#friend_rank").append(td);
+        val={
+            old_password:ops,
+            new_password:nps
+        };
+        $.ajax("/api/user/axy14/password", {
+            type: 'PUT',
+            async:false,
+            data:val,
+            success: function (result) {
+                data=JSON.parse(result);
+                if(data.status=="ok"){
+                    alert("更改成功");
+                    window.location.href="my_setting.php";
+                }else{
+                    alert("旧密码不正确");
+                }
             }
-            if (data.length == 0) {
-                $("#w_rank").html(1);
-            } else {
+        });
 
-                $.ajax("/api/user/cjh14/sport_record_weekly", {
-                    type: 'GET',
-                    datatype: 'json',
-                    success: function (result) {
-                        data1 = JSON.parse(result);
-                        rank = 1;
-                        for (i = 0; i < data.length; i++) {
-                            if (data[i].w_steps > data1.w_steps) {
-                                rank++;
-                            }
-                        }
-                        $("#w_rank").html(rank);
-                    }
-                });
-            }
-        }
     });
 </script>
 </body>
