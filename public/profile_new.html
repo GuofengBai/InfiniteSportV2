@@ -916,9 +916,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <h4 class="header-text m-top-md">修改头像</h4>
-                                        <form class="form-horizontal m-top-md" enctype="multipart/form-data"
-                                              action="/api/user/axy14/avatar/" method="post">
+                                        <h4 class="header-text m-top-md">设置头像</h4>
+                                        <form class="form-horizontal m-top-md" id="uploadForm">
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">上传头像</label>
                                                 <div class="col-sm-9">
@@ -929,9 +928,7 @@
                                                     <br><br>
                                                     <div class="form-group">
                                                         <div class="col-sm-9">
-                                                            <input name="submit" class="btn btn-info m-left-xs"
-                                                                   type="submit"
-                                                                   value="上传">
+                                                            <button name="submit" class="btn btn-info m-left-xs" onclick="doUpload()">上传</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1035,7 +1032,7 @@
                             "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                             "<div class=\"m-top-sm\">" +
 
-                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid=" + temp.id + "\" style='color: inherit'>进入首页</a></button>" +
+                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.html?uid=" + temp.id + "\" style='color: inherit'>进入首页</a></button>" +
                             "</div> </div> </div> </div> </div>" + "</li>";
                         $("#following_list").append(tb);
                     }
@@ -1091,7 +1088,24 @@
             }
         });
     });
-    $("#submit").on
+    function doUpload() {
+        var formData = new FormData($( "#uploadForm" )[0]);
+        $.ajax({
+            url: '/api/user/axy14/avatar/' ,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                alert(returndata);
+            },
+            error: function (returndata) {
+                alert(returndata);
+            }
+        });
+    }
 </script>
 <script>
     id = $("#id").text();
