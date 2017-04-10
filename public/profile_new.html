@@ -679,7 +679,7 @@
                     <div class="row">
                         <div class="col-sm-4 col-md-12">
                             <div class="user-profile-pic">
-                                <img id="l_avatar" alt="">
+                                <div class="image image-full" id="l_avatar"></div>
                                 <div class="ribbon-wrapper">
 
                                 </div>
@@ -1066,6 +1066,7 @@
             $("#l_profile").append(data.profile);
             $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
             $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
+            $('#l_avatar').append("<img src=\"images/avatar/" + data.id + ".jpg\" />");
 
         }
     });
