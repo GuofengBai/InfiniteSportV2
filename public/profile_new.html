@@ -1130,7 +1130,9 @@
         success: function (result) {
             data = JSON.parse(result);
             for (i = 0; i < data.length; i++) {
-                alert(data.id);
+                var td="<li><p>"+
+                        data.id+"</p></li>";
+                $("#friend_rank").append(td);
             }
             if (data.length == 0) {
                 $("#w_rank").html(1);
