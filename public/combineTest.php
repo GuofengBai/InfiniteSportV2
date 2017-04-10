@@ -6,12 +6,20 @@
  * Time: 20:34
  */
 
-    include "head.html";
-    /*此处写
+    session_start();
+
+    //检测是否登录，若没登录则转向登录界面
+    if(!isset($_SESSION['id'])){
+        header("Location:login.html");
+        exit();
+    }
+?>
+    <?php include "head.html";?>
+
     <div class="main-container">
 
 	</div><!-- /main-container -->
-    */
-    include "middle.html";
+    <?php include "middle.html";?>
     /*此处写js代码*/
-    include "end.html";
+
+    <?php include "end.html";?>

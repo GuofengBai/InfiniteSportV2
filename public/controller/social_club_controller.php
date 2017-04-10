@@ -84,7 +84,7 @@ class social_club_controller
     }
 
     public function getUnreadNumber($receiver){
-        $sql ="select sender,count(*) as num from chat where receiver='$receiver' and readed='false' group by sender";
+        $sql ="select c.sender as sender,u.avatar as avatar,count(*) as num from chat c,user u where c.receiver='$receiver' and u.id=c.sender and c.readed='false' group by c.sender,u.avatar";
         $statement = $this->db->find($sql);
         $result = array();
         while($row=$statement->fetchArray(SQLITE3_ASSOC)){
