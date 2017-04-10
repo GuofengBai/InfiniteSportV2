@@ -27,7 +27,7 @@ $app->post('/api/login', function (Request $request, Response $response) {
 $app->get('/api/logout', function (Request $request, Response $response) {
     $controller = new user_controller();
     $controller->logout();
-    $response->getBody()->write("<script>location.href=\"index.html\"</script>");
+    $response->getBody()->write("<script>location.href=\"/index.html\"</script>");
     return $response;
 });
 $app->get('/api/user/', function (Request $request, Response $response) {
