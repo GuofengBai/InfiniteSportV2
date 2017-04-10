@@ -907,23 +907,33 @@
                                                               style="width: 60%"></textarea>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label">上传头像</label>
-                                                <div class="col-sm-9">
-                                                    <form enctype="multipart/form-data" action="/api/user/axy14/Avatar/"
-                                                          method="post">
-                                                        <input name="avatar" id="avatar" type="file"
-                                                               class="form-control"
-                                                               value="" style="width: 51%;float:left;" >
-                                                        <input class="btn btn-info m-left-xs" type="submit" value="上传" style="float: left;">
-                                                    </form>
-                                                </div>
-                                            </div>
+
 
                                             <div class="form-group m-top-lg">
                                                 <label class="col-sm-3 control-label"></label>
                                                 <div class="col-sm-9">
                                                     <button class="btn btn-info m-left-xs" id="submit1">保存</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <h4 class="header-text m-top-md">修改头像</h4>
+                                        <form class="form-horizontal m-top-md" enctype="multipart/form-data"
+                                              action="/api/user/axy14/avatar/" method="post">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">上传头像</label>
+                                                <div class="col-sm-9">
+
+                                                    <input name="avatar" id="avatar" type="file"
+                                                           class="form-control"
+                                                           value="" style="width: 60%;">
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-9">
+                                                            <input name="submit" class="btn btn-info m-left-xs"
+                                                                   type="submit"
+                                                                   value="上传">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
@@ -1131,8 +1141,8 @@
         success: function (result) {
             data = JSON.parse(result);
             for (i = 0; i < data.length; i++) {
-                var td="<li><p>"+
-                        data.id+"</p></li>";
+                var td = "<li><p>" +
+                    data.id + "</p></li>";
                 $("#friend_rank").append(td);
             }
             if (data.length == 0) {
