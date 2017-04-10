@@ -690,42 +690,43 @@
 								</ul>
 							</div>
 							<div class="smart-widget-body">
-								<form>
+								<form class="form-horizontal m-top-md">
 									<div class="form-group">
-										<label class="col-lg-2 control-label before2">活动名称</label>
-										<div class="col-lg-10" >
-											<input type="text" class="form-control after2" id="aname" placeholder="" maxlength="10" style="width:250px">
-										</div>
-									</div><!-- /form-group -->
-									<div class="form-group">
-										<label class="col-lg-2 control-label before2">活动奖励</label>
-										<div class="col-lg-10">
-											<input type="number" class="form-control after2" id="abonus" style="width:250px">
+										<label class="col-sm-2 control-label before2">活动名称</label>
+										<div class="col-sm-10" >
+											<input type="text" class="form-control after2" id="aname" required="required" maxlength="10" style="width:250px">
 										</div>
 									</div><!-- /form-group -->
 
 									<div class="form-group">
-										<label class="col-lg-2 control-label before2">开始时间</label>
-										<div class="col-lg-10">
-											<input type="date" class="form-control after2" id="astart" style="width:250px">
+										<label class="col-sm-2 control-label before2">开始时间</label>
+										<div class="col-sm-10">
+											<input type="date" class="form-control after2" id="astart" required="required" style="width:250px">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-lg-2 control-label before2">结束时间</label>
-										<div class="col-lg-10">
-											<input type="date" class="form-control after2" id="aend" style="width:250px">
+										<label class="col-sm-2 control-label before2">结束时间</label>
+										<div class="col-sm-10">
+											<input type="date" class="form-control after2" id="aend" required="required" style="width:250px">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-lg-2 control-label before2">活动描述</label>
-										<div class="col-lg-10">
+										<label class="col-sm-2 control-label before2">活动奖励</label>
+										<div class="col-sm-10">
+											<input type="number" class="form-control after2" required="required" id="abonus"  maxlength="10" style="width:250px">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label before2">活动描述</label>
+										<div class="col-sm-10">
 											<textarea class="form-control after2" id="adesc" rows="5" style="width:85%"></textarea>
 										</div>
 									</div>
 
-									<button type="submit" class="btn btn-success btn-sm short" id="submit" style="margin-left: 75%">提交</button>
+									<button type="submit" class="btn btn-success btn-sm short" id="submit" style="margin-left: 80%">提交</button>
 								</form>
 							</div>
 						</div><!-- ./smart-widget-inner -->

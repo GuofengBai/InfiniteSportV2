@@ -700,7 +700,7 @@
 										</div>
 									</div>
 
-									<button type="submit" class="btn btn-success btn-sm pull-right short" style="margin-right: 10%" id="submit">参与</button>
+									<button type="submit" class="btn  btn-sm pull-right short" style="margin-right: 10%" id="submit">参与</button>
 								</form>
 								<br/>
 								<h4 class="m-bottom-md">
@@ -839,7 +839,8 @@
                             var ty=0;
                             if(uid==data.creator){
                                 ty=1;
-                                $("#submit").html("销毁活动");
+                                $("#submit").html("<i class=\"fa fa-trash-o\"></i>&nsp删除活动");
+                                $("#submit").addClass("btn-danger");
                                 $("#submit").on("click",function () {
                                     $.ajax("/api/activity/"+aid, {
                                         type: 'DELETE',
@@ -867,7 +868,8 @@
                                         }
                                     }
                                     if(ty==2){
-                                        $("#submit").html("退出活动");
+                                        $("#submit").html("<i class=\"fa fa-sign-out\"></i>&nsp退出活动");
+                                        $("#submit").addClass("btn-warning");
                                         $("#submit").on("click",function () {
                                             $.ajax("/api/user/"+uid+"/activity/"+aid, {
                                                 type: 'DELETE',
@@ -878,7 +880,8 @@
                                             });
                                         });
                                     }else if(ty==3){
-                                        $("#submit").html("加入活动");
+                                        $("#submit").html("<i class=\"fa fa-sign-in\"></i>&nsp加入活动");
+                                        $("#submit").addClass("btn-success");
                                         $("#submit").on("click",function () {
                                             $.ajax("/api/user/"+uid+"/activity/", {
                                                 type: 'POST',

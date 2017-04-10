@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   	<head>

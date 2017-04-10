@@ -1,8 +1,19 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   	<head>
 	    <meta charset="utf-8">
-	    <title>我的活动</title>
+	    <title>活动详情</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
@@ -16,14 +27,22 @@
 		<!-- ionicons -->
 		<link href="css/ionicons.min.css" rel="stylesheet">
 		
-		<!-- datatable -->
-		<link href="public/css/dataTables.bootstrap.css" rel="stylesheet">
+		<!-- Slider -->
+		<link href="css/bootstrap-slider.css" rel="stylesheet"/>
 
+		<!-- Tag Input -->
+		<link href="css/jquery.tagsinput.css" rel="stylesheet">
+
+		<!-- Date Time Picker -->
+		<link href="public/css/datetimepicker.css" rel="stylesheet">
+		
+		<!-- Select2 -->
+		<link href="public/css/select2/select2.css" rel="stylesheet"/>
+		
 		<!-- Simplify -->
 		<link href="css/simplify.min.css" rel="stylesheet">
 
 		<link href="css/activity.css" rel="stylesheet">
-
   	</head>
 
   	<body class="overflow-hidden">
@@ -479,7 +498,7 @@
 									</span>
 								</a>
 							</li>
-							<li class="openable bg-palette3">
+							<li class="openable bg-palette3 open">
 								<a href="#">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
@@ -491,13 +510,13 @@
 									</span>
 								</a>
 								<ul class="submenu bg-palette4">
-									<li><a href="form_element.html"><span class="submenu-label">Form Element</span></a></li>
+									<li class="active"><a href="form_element.html"><span class="submenu-label">Form Element</span></a></li>
 									<li><a href="form_validation.html"><span class="submenu-label">Form Validation</span></a></li>
 									<li><a href="form_wizard.html"><span class="submenu-label">Form Wizard</span></a></li>
 									<li><a href="dropzone.html"><span class="submenu-label">Dropzone</span></a></li>
 								</ul>
 							</li>
-							<li class="openable bg-palette4 open">
+							<li class="openable bg-palette4">
 								<a href="#">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-tags fa-lg"></i></span>
@@ -511,14 +530,14 @@
 								<ul class="submenu">
 									<li><a href="ui_element.html"><span class="submenu-label">Basic Elements</span></a></li>
 									<li><a href="button.html"><span class="submenu-label">Button & Icons</span></a></li>
-									<li class="openable open">
+									<li class="openable">
 										<a href="#">
 											<small class="badge badge-success badge-square bounceIn animation-delay2 m-left-xs pull-right">2</small>
 											<span class="submenu-label">Tables</span>
 										</a>
 										<ul class="submenu third-level">
 											<li><a href="static_table.html"><span class="submenu-label">Static Table</span></a></li>
-											<li class="active"><a href="datatable.html"><span class="submenu-label">DataTables</span></a></li>
+											<li><a href="datatable.html"><span class="submenu-label">DataTables</span></a></li>
 										</ul>
 									</li>
 									<li><a href="widget.html"><span class="submenu-label">Widget</span></a></li>
@@ -654,85 +673,72 @@
 			<div class="main-container">
 				<div class="padding-md">
 					<h2 class="header-text">
-						我的活动
+						活动详情
 						<span class="sub-header">
 
 						</span>
 					</h2>
-
 					<div class="smart-widget m-top-lg widget-dark-blue">
 						<div class="smart-widget-header">
-							<span style="font-size: 18px">我发起的活动</span>
+							<span id="aname" style="font-size: 18px">活动名</span>
 						</div>
 						<div class="smart-widget-inner">
 
 							<div class="smart-widget-body">
+								<form>
+									<div class="form-group">
+										<label class="col-lg-2 control-label before" style="width: 120px">发起人</label>
+										<label class="col-lg-2 control-label after" ><a id="acreator">用户1</a></label>
+
+									</div><!-- /form-group -->
+
+									<div class="form-group">
+										<label class="col-lg-2 control-label before" style="width: 120px">开始时间</label>
+										<label class="col-lg-2 control-label after"style="width: 150px"><p class="form-control-static" id="sdate">2017-4-9</p></label>
+										<label class="col-lg-2 control-label before" style="width: 120px">结束时间</label>
+										<label class="col-lg-2 control-label after"style="width: 150px"><p class="form-control-static" id="edate">2017-4-10</p></label>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-2 control-label before" style="width: 120px">活动奖励</label>
+										<label class="col-lg-2 control-label after"><p class="form-control-static" id="abonus" >100</p></label>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-2 control-label before">活动描述</label>
+										<div class="col-lg-10">
+											<p class="form-control-static after" id="adesc"  >aaaaaaaaaaaaaaaaaaaaaa啊啊啊啊啊啊啊啊</p>
+										</div>
+									</div>
+
+									<button type="submit" class="btn  btn-sm pull-right short" style="margin-right: 10%" id="submit">参与</button>
+								</form>
+								<br/>
+								<h4 class="m-bottom-md">
+									<i class="fa fa-trophy"></i>
+									参与者
+								</h4>
 								<table class="table table-striped" id="dataTable">
 									<thead>
 									<tr>
-										<th>活动名</th>
-										<th>开始时间</th>
-										<th>结束时间</th>
-										<th>奖励</th>
+										<th>编号</th>
+										<th>用户名</th>
+										<th>步数</th>
 									</tr>
 									</thead>
-									<tbody id="m_list">
-
-									</tbody>
-								</table>
-								<div>
-									<ul class="pagination" style="margin-left: 35%">
-										<li class="disabled"><a href="#">&laquo;</a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-					<div class="smart-widget m-top-lg widget-dark-blue">
-						<div class="smart-widget-header">
-							<span style="font-size: 18px">我参加的活动</span>
-						</div>
-						<div class="smart-widget-inner">
-
-							<div class="smart-widget-body">
-								<table class="table table-striped" id="dataTable2">
-									<thead>
+									<tbody id="j_list">
 									<tr>
-										<th>活动名</th>
-										<th>开始时间</th>
-										<th>结束时间</th>
-										<th>奖励</th>
-										<th>发起人</th>
+										<td>1</td>
+										<td>用户1</td>
+										<td>1000</td>
 									</tr>
-									</thead>
-									<tbody id="a_list">
 
 									</tbody>
 								</table>
-								<div>
-									<ul class="pagination" style="margin-left: 35%">
-										<li class="disabled"><a href="#">&laquo;</a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
-									</ul>
-								</div>
 							</div>
-						</div>
-					</div>
 
+						</div><!-- ./smart-widget-inner -->
+					</div><!-- ./smart-widget -->
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
 
@@ -746,6 +752,42 @@
 			</footer>
 		</div><!-- /wrapper -->
 
+		<!-- Small modal -->
+		<div class="modal fade" id="formInModal">
+		  	<div class="modal-dialog modal-sm">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        		<h4 class="modal-title" id="myModalLabel">Login</h4>
+		      		</div>
+		      		<div class="modal-body">
+		        		<form role="form">
+				  			<div class="form-group">
+				    			<label for="inputEmailModal">Email address</label>
+				    			<input type="email" class="form-control" id="inputEmailModal" placeholder="Enter email">
+				  			</div>
+				  			<div class="form-group">
+							    <label for="inputPasswordModal">Password</label>
+							    <input type="password" class="form-control" id="inputPasswordModal" placeholder="Password">
+	  			  			</div>
+	  			  			<div class="form-group">
+			   	    			<div class="custom-checkbox">
+									<input type="checkbox" id="checkboxModal">
+							  	  	<label for="checkboxModal"></label>
+				    			</div>
+				    			Remember Me
+				  			</div>
+		        		</form>
+
+				        <a class="btn btn-primary block m-top-md"><i class="fa fa-facebook"></i> Login with facebook</a>
+				        <a class="btn btn-danger block m-top-md">Login</a>
+		      		</div>
+		    	</div>
+		  	</div>
+		</div>
+
+
+
 		<a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
 		
 	    <!-- Le javascript
@@ -757,16 +799,27 @@
 		
 		<!-- Bootstrap -->
 	    <script src="bootstrap/js/bootstrap.min.js"></script>
-		
-		<!-- Datatable -->
-		<script src='public/js/jquery.dataTables.min.js'></script>
-		<script src='public/js/uncompressed/dataTables.bootstrap.js'></script>
-		
-		<!-- Slimscroll -->
-		<script src='js/jquery.slimscroll.min.js'></script>
-
+	  
 		<!-- Popup Overlay -->
 		<script src='js/jquery.popupoverlay.min.js'></script>
+
+		<!-- Slider -->
+		<script src='public/js/uncompressed/bootstrap-slider.js'></script>
+		
+		<!-- Tag Input -->
+		<script src='public/js/jquery.tagsinput.min.js'></script>
+
+		<!-- Moment -->
+		<script src='public/js/uncompressed/moment.js'></script>
+
+		<!-- Date Time picker -->
+		<script src='public/js/uncompressed/bootstrap-datetimepicker.js'></script>
+
+		<!-- Select2 -->
+		<script src='public/js/select2.min.js'></script>
+
+		<!-- Slimscroll -->
+		<script src='js/jquery.slimscroll.min.js'></script>
 
 		<!-- Modernizr -->
 		<script src='js/modernizr.min.js'></script>
@@ -775,51 +828,104 @@
 		<script src="js/simplify/simplify.js"></script>
 
 		<script>
-			$(function()	{
-			    $('#dataTable').dataTable();
-			});
-		</script>
+            $(document).ready(function () {
+                    var str = window.location.search;
+                    var index = str.indexOf("=");
+                    var aid = str.substring(index + 1);
+                    aid=parseInt(aid);
+                    var uid=$("#id").text();
+                    $.ajax("/api/activity/"+aid, {
+                        type: 'GET',
+                        async:false,
+                        success: function (result) {
+                            data=JSON.parse(result);
+                            $("#aname").html(data.aname);
+                            $("#acreator").html(data.creator);
+                            $("#acreator").attr("href","user_specific.php?uid="+data.creator);
+                            $("#sdate").html(data.start_date);
+                            $("#edate").html(data.end_date);
+                            $("#bonus").html(data.bonus);
+                            $("#adesc").html(data.description);
 
+                            var ty=0;
+                            if(uid==data.creator){
+                                ty=1;
+                                $("#submit").html("<i class=\"fa fa-trash-o\"></i>&nsp删除活动");
+                                $("#submit").addClass("btn-danger");
+                                $("#submit").on("click",function () {
+                                    $.ajax("/api/activity/"+aid, {
+                                        type: 'DELETE',
+                                        async:false,
+                                        success: function (result) {
+                                            window.location.href="my_activity.php";
+                                        }
+                                    });
+                                });
+                            }
 
-		<script>
-            $.ajax("/api/user/"+id+"/activity_joined/", {
-                type: 'GET',
-                success: function (result) {
-                    data=JSON.parse(result);
-                    for(i=0;i<data.length;i++){
-                        var tb="<tr>"+
-                            "<td>"+
-                            "<a href=\"activity_specific.php?aid="+data[i].id+"\"style=\"font-weight: bold\">"+data[i].name+"</a>"+
-                            "</td>"+
-                            "<td>"+data[i].start_date+"</td>"+
-							"<td>"+data[i].end_date+"</td>"+
-                            "<td>"+data[i].bonus+"</td>"+
-                            "<td>"+ "<a href=\"user_specific.php?uid="+data[i].creator+"\"style=\"font-weight: bold\">"+data[i].creator+"</a>"+"</td>"+
-							"</tr>";
-                        $("#a_list").append(tb);
-                    }
+                            $.ajax("/api/activity/"+aid+"/joiner/", {
+                                type: 'GET',
+                                async:false,
+                                success: function (result) {
+                                    data=JSON.parse(result);
+
+                                    if(ty==0){
+                                        ty=3;
+                                        for(i=0;i<data.length;i++){
+                                            if(uid==data[i].id){
+                                                ty=2;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if(ty==2){
+                                        $("#submit").html("<i class=\"fa fa-sign-out\"></i>&nsp退出活动");
+                                        $("#submit").addClass("btn-warning");
+                                        $("#submit").on("click",function () {
+                                            $.ajax("/api/user/"+uid+"/activity/"+aid, {
+                                                type: 'DELETE',
+                                                async:false,
+                                                success: function (result) {
+                                                    window.location.href="my_activity.php";
+                                                }
+                                            });
+                                        });
+                                    }else if(ty==3){
+                                        $("#submit").html("<i class=\"fa fa-sign-in\"></i>&nsp加入活动");
+                                        $("#submit").addClass("btn-success");
+                                        $("#submit").on("click",function () {
+                                            $.ajax("/api/user/"+uid+"/activity/", {
+                                                type: 'POST',
+                                                data:{a_id:aid},
+                                                async:false,
+                                                success: function (result) {
+                                                    data=JSON.parse(result);
+                                                    if(data.status=="ok"){
+                                                        window.location.href="my_activity.php";
+                                                    }else {
+                                                        alert(data.detail);
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }
+
+                                    for(i=0;i<data.length;i++){
+                                        var tb="<tr>"+
+											"<td>"+(i+1)+"</td>"+
+                                            "<td>"+ "<a href=\"user_specific.php?uid="+data[i].id+"\">"+data[i].id+"</a>"+"</td>"+
+                                            "<td>"+ data[i].t_steps+"</td>"+
+                                            "</tr>";
+                                        $("#j_list").append(tb);
+                                    }
+                                }
+                            });
+
+                        }
+                    });
 
                 }
-            });
-
-            $.ajax("/api/user/"+id+"/activity_created/", {
-                type: 'GET',
-                success: function (result) {
-                    data=JSON.parse(result);
-                    for(i=0;i<data.length;i++){
-                        var tb="<tr>"+
-                            "<td>"+
-                            "<a href=\"activity_specific.php?aid="+data[i].id+"\"class=\"large text-success\">"+data[i].name+"</a>"+
-                            "</td>"+
-                            "<td>"+data[i].start_date+"</td>"+
-                            "<td>"+data[i].end_date+"</td>"+
-                            "<td>"+data[i].bonus+"</td>"+
-                            "</tr>";
-                        $("#m_list").append(tb);
-                    }
-
-                }
-            });
+            );
 		</script>
 	
   	</body>
