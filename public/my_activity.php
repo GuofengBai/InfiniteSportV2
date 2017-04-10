@@ -668,7 +668,7 @@ if(!isset($_SESSION['id'])){
 
 						</span>
 					</h2>
-
+                    <span style="display: none" id="uid"><?php echo $_SESSION["id"]?></span>
 					<div class="smart-widget m-top-lg widget-dark-blue">
 						<div class="smart-widget-header">
 							<span style="font-size: 18px">我发起的活动</span>
@@ -791,6 +791,8 @@ if(!isset($_SESSION['id'])){
 
 
 		<script>
+            id=$("#uid").text();
+            
             $.ajax("/api/user/"+id+"/activity_joined/", {
                 type: 'GET',
                 success: function (result) {
