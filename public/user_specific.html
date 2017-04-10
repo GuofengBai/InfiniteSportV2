@@ -1010,7 +1010,7 @@
             if(fo==0){
                 $("#submit").html("关注");
                 $("#submit").on("click",function () {
-                    $.ajax("/api/user/"+id+"/following/", {
+                    $.ajax("/api/user/axy14/following/", {
                         type: 'POST',
                         data: {followingid:uid},
                         async:false,
@@ -1019,7 +1019,7 @@
                             if(data.status=="false"){
                                 alert(data.detail);
                             }else{
-                                window.location.href="user_specific.php?uid="+uid;
+                                window.location.href="user_specific.html?uid="+uid;
                             }
                         }
                     });
@@ -1027,12 +1027,12 @@
             }else{
                 $("#submit").html("取消关注");
                 $("#submit").on("click",function () {
-                    $.ajax("/api/user/"+id+"/following/", {
+                    $.ajax("/api/user/axy14/following/", {
                         type: 'DELETE',
                         data: {followingid:uid},
                         async:false,
                         success: function (result) {
-                            window.location.href="user_specific.php?uid="+uid;
+                            window.location.href="user_specific.html?uid="+uid;
                         }
                     });
                 });
