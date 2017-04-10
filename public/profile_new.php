@@ -1021,7 +1021,7 @@ if(!isset($_SESSION['id'])){
     });
 </script>
 <script>
-    $.ajax("/api/user/axy14/following/", {
+    $.ajax("/api/user/"+id+"/following/", {
         type: 'GET',
         async: false,
         datatype: 'json',
@@ -1036,7 +1036,7 @@ if(!isset($_SESSION['id'])){
                     success: function (td) {
                         temp = JSON.parse(td);
                         var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
-                            "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                            "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src="+temp.avatar+ "alt=\"\"> </div> <div class=\"user-detail small-img\">" +
                             "<div class=\"font-16\">" + temp.name + "</div>" +
                             "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                             "<div class=\"m-top-sm\">" +
@@ -1052,7 +1052,7 @@ if(!isset($_SESSION['id'])){
     });
 </script>
 <script>
-    $.ajax("/api/user/axy14", {
+    $.ajax("/api/user/"+id, {
         type: 'GET',
         async: false,
         datatype: 'json',
@@ -1087,7 +1087,7 @@ if(!isset($_SESSION['id'])){
             job: jo,
             location: locatio
         };
-        $.ajax("/api/user/axy14", {
+        $.ajax("/api/user/"+id, {
             type: 'PUT',
             async: false,
             data: val,
@@ -1100,7 +1100,7 @@ if(!isset($_SESSION['id'])){
     function doUpload() {
         var formData = new FormData($( "#uploadForm" )[0]);
         $.ajax({
-            url: '/api/user/axy14/avatar/' ,
+            url: '/api/user/'+id+'/avatar/' ,
             type: 'POST',
             data: formData,
             async: false,
@@ -1118,7 +1118,7 @@ if(!isset($_SESSION['id'])){
 </script>
 <script>
     id = $("#id").text();
-    $.ajax("/api/user/axy14/sport_record_total", {
+    $.ajax("/api/user/"+id+"/sport_record_total", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1128,7 +1128,7 @@ if(!isset($_SESSION['id'])){
             $("#t_calorie").html(data.t_calorie);
         }
     });
-    $.ajax("/api/user/axy14/sport_days", {
+    $.ajax("/api/user/"+id+"/sport_days", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1136,7 +1136,7 @@ if(!isset($_SESSION['id'])){
             $("#t_days").html(data.t_days);
         }
     });
-    $.ajax("/api/user/axy14/activity_todo/", {
+    $.ajax("/api/user/"+id+"/activity_todo/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1144,7 +1144,7 @@ if(!isset($_SESSION['id'])){
             $("#a_uncomplete").html(data.length);
         }
     });
-    $.ajax("/api/user/axy14/activity/", {
+    $.ajax("/api/user/"+id+"/activity/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1152,7 +1152,7 @@ if(!isset($_SESSION['id'])){
             $("#a_join").html(data.length);
         }
     });
-    $.ajax("/api/user/axy14/following/", {
+    $.ajax("/api/user/"+id+"/following/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1160,7 +1160,7 @@ if(!isset($_SESSION['id'])){
             $("#w_number").html(data.length);
         }
     });
-    $.ajax("/api/user/axy14/weekly_rank/", {
+    $.ajax("/api/user/"+id+"/weekly_rank/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -1174,7 +1174,7 @@ if(!isset($_SESSION['id'])){
                 $("#w_rank").html(1);
             } else {
 
-                $.ajax("/api/user/axy14/sport_record_weekly", {
+                $.ajax("/api/user/"+id+"/sport_record_weekly", {
                     type: 'GET',
                     datatype: 'json',
                     success: function (result) {

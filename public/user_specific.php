@@ -999,7 +999,7 @@ if(!isset($_SESSION['id'])){
             }
         }
     });
-    $.ajax("/api/user/axy14/following/", {
+    $.ajax("/api/user/"+id+"/following/", {
         type: 'GET',
         async:false,
         datatype:'json',
@@ -1019,7 +1019,7 @@ if(!isset($_SESSION['id'])){
             if(fo==0){
                 $("#submit").html("关注");
                 $("#submit").on("click",function () {
-                    $.ajax("/api/user/axy14/following/", {
+                    $.ajax("/api/user/"+id+"/following/", {
                         type: 'POST',
                         data: {followingid:uid},
                         async:false,
@@ -1036,7 +1036,7 @@ if(!isset($_SESSION['id'])){
             }else{
                 $("#submit").html("取消关注");
                 $("#submit").on("click",function () {
-                    $.ajax("/api/user/axy14/following/", {
+                    $.ajax("/api/user/"+id+"/following/", {
                         type: 'DELETE',
                         data: {followingid:uid},
                         async:false,
