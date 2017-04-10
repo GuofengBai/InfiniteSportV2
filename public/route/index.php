@@ -80,24 +80,34 @@ $app->get('/api/user/{id}', function (Request $request, Response $response,$args
 
     return $response;
 });
-$app->post('/api/user/{id}/Avatar/', function (Request $request, Response $response, $args) use ($app) {
-
-    $id = $args['id'];
-    $target_dir = "/images/avatar/";
-    $filename = basename($_FILES['image']['name']);
-    $file_ext = strtolower(substr($filename, strrpos($filename, '.') + 1));
-    $target_file = $target_dir . $id . $file_ext;
-
-    $check = getimagesize($_FILES['avatar']['tmp_name']);
-    if ($check !== false) {
-        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
-            $response->getBody()->write("<script>alert('更换头像成功！'); history.go(-1);</script>");
-        } else {
-            echo "上传失败";
-        }
-    } else {
-        $response->getBody()->write("<script>alert('您上传的不是图片：（'); history.go(-1);</script>");
+$app->post('/api/user/{id}/avatar/', function (Request $request, Response $response, $args){
+    $id=$args['id'];
+    $ok=false;
+    $ext=".jpg";
+    if($_FILES["avatar"]["type"] == "image/gif"){
+        $ext=".gif";
+        $ok=true;
+    }else if($_FILES["avatar"]["type"] == "image/jpeg" || $_FILES["avatar"]["type"] == "image/pjpeg"){
+        $ext=".jpg";
+        $ok=true;
+    }else if($_FILES["avatar"]["type"] == "image/png" || $_FILES["avatar"]["type"] == "image/x-png"){
+        $ext=".png";
+        $ok=true;
+    }else if($_FILES["avatar"]["type"] == "image/bmp"){
+        $ext=".png";
+        $ok=true;
     }
+    if($ok==false){
+        $response->getBody()->write(json_encode(array("status"=>"failed","message"=>"您上传的不是图片！！！")));
+        return;
+    }
+    if($_FILES["avatar"]["size"] > 2097152){
+        $response->getBody()->write(json_encode(array("status"=>"failed","message"=>"您上传的图片超过2MB！！！")));
+        return;
+    }
+    move_uploaded_file($_FILES["avatar"]["tmp_name"],
+            "../images/avatar/".$id.$ext);
+    $response->getBody()->write(json_encode(array("status"=>"succeeded","message"=>"更换头像成功！！！")));
 });
 
 $app->get('/api/activity/', function (Request $request, Response $response) {

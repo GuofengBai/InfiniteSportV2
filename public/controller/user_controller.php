@@ -41,7 +41,7 @@ class user_controller
     }
 
     function getAllUser(){
-        $query = "select id,name,profile,email,level,exp,location,job from user";
+        $query = "select id,name,profile,email,level,exp,location,job,avatar from user";
         $statement = $this->db->find($query);
         $result = array();
         while($row=$statement->fetchArray(SQLITE3_ASSOC)){
@@ -52,14 +52,14 @@ class user_controller
     }
 
     function getUser($id){
-        $query = "select id,name,profile,email,level,exp,location,job,sum(steps) as t_steps,sum(miles) as t_miles,sum(calorie) as t_calorie,count(*) as t_days from user left join sport_record on ownerid=id where id='$id'";
+        $query = "select id,name,profile,email,level,exp,location,job,avatar,sum(steps) as t_steps,sum(miles) as t_miles,sum(calorie) as t_calorie,count(*) as t_days from user left join sport_record on ownerid=id where id='$id'";
         $statement = $this->db->find($query);
         $row=$statement->fetchArray(SQLITE3_ASSOC);
         return json_encode($row);
     }
 
     function searchUser($search){
-        $query = "select id,name,profile,email,level,exp,location,job,sum(steps) as t_steps,sum(miles) as t_miles,sum(calorie) as t_calorie,count(*) as t_days from user left join sport_record on ownerid=id where id like '%{$search}%' or name like '%{$search}%' group by id";
+        $query = "select id,name,profile,email,level,exp,location,job,avatar,sum(steps) as t_steps,sum(miles) as t_miles,sum(calorie) as t_calorie,count(*) as t_days from user left join sport_record on ownerid=id where id like '%{$search}%' or name like '%{$search}%' group by id";
         $statement = $this->db->find($query);
         $result = array();
         while($row=$statement->fetchArray(SQLITE3_ASSOC)){
@@ -69,7 +69,7 @@ class user_controller
     }
 
     function addUser($id,$name,$password){
-        $query = "insert into user(id,name,password,level,exp) values('$id','$name','$password',0,0)";
+        $query = "insert into user(id,name,password,level,exp,avatar) values('$id','$name','$password',0,0,'images/default_avatar.jpg')";
         $statement = $this->db->operate($query);
         if($statement){
             $val=array("status"=>"ok");
@@ -81,6 +81,17 @@ class user_controller
 
     function updateUser($id,$email,$profile,$location,$job){
         $query = "update user set email='$email',profile='$profile',location='$location',job='$job' where id='$id'";
+        $statement = $this->db->operate($query);
+        if($statement){
+            $val=array("status"=>"ok");
+        }else{
+            $val=array("status"=>"false");
+        }
+        return json_encode($val);
+    }
+
+    function updateAvatar($id,$avatar){
+        $query = "update user set avatar='$avatar' where id='$id'";
         $statement = $this->db->operate($query);
         if($statement){
             $val=array("status"=>"ok");
