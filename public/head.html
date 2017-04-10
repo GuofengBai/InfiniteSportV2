@@ -53,10 +53,10 @@
 				<div class="pull-right m-right-sm">
 					<div class="user-block hidden-xs">
 						<a href="#" id="userToggle" data-toggle="dropdown">
-							<img src="images/profile/profile1.jpg" alt=""
+							<img id="top_avatar" src="images/profile/profile1.jpg" alt=""
 							     class="img-circle inline-block user-profile-pic">
 							<div class="user-detail inline-block">
-								<span id="id">Jane Doe</span>
+								<span id="id"><?php echo $_SESSION["id"]?></span>
 								<i class="fa fa-angle-down"></i>
 							</div>
 						</a>
@@ -89,56 +89,6 @@
 							<span class="badge badge-purple bounceIn animation-delay5 active"><span class="messages_num">2</span></span>
 							<ul class="dropdown-menu message pull-right" id="messages_list">
 								<li><a>你有<span class="messages_num">4</span>条消息</a></li>
-								<li>
-									<a class="clearfix" href="#">
-										<img src="images/profile/profile2.jpg" alt="User Avatar">
-										<div class="detail">
-											<strong>John Doe</strong>
-											<p class="no-margin">
-												Lorem ipsum dolor sit amet...
-											</p>
-											<small class="text-muted"><i class="fa fa-check text-success"></i> 27m ago
-											</small>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a class="clearfix" href="#">
-										<img src="images/profile/profile3.jpg" alt="User Avatar">
-										<div class="detail">
-											<strong>Jane Doe</strong>
-											<p class="no-margin">
-												Lorem ipsum dolor sit amet...
-											</p>
-											<small class="text-muted"><i class="fa fa-check text-success"></i> 5hr ago
-											</small>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a class="clearfix" href="#">
-										<img src="images/profile/profile4.jpg" alt="User Avatar">
-										<div class="detail m-left-sm">
-											<strong>Bill Doe</strong>
-											<p class="no-margin">
-												Lorem ipsum dolor sit amet...
-											</p>
-											<small class="text-muted"><i class="fa fa-reply"></i> Yesterday</small>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a class="clearfix" href="#">
-										<img src="images/profile/profile5.jpg" alt="User Avatar">
-										<div class="detail">
-											<strong>Baby Doe</strong>
-											<p class="no-margin">
-												Lorem ipsum dolor sit amet...
-											</p>
-											<small class="text-muted"><i class="fa fa-reply"></i> 9 Feb 2013</small>
-										</div>
-									</a>
-								</li>
 							</ul>
 						</li>
 					</ul>
@@ -150,8 +100,8 @@
 		<div class="sidebar-inner scrollable-sidebar">
 			<div class="main-menu">
 				<ul class="accordion">
-					<li class="bg-palette1 active">
-						<a href="#">
+					<li class="bg-palette1" id="menu_mainpage">
+						<a href="main.php">
                             <span class="menu-content block">
                                 <span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
                                 <span class="text m-left-sm">我的主页</span>
@@ -161,7 +111,7 @@
                             </span>
 						</a>
 					</li>
-					<li class="openable bg-palette2">
+					<li class="openable bg-palette2" id="menu_sh">
 						<a href="#">
 							<span class="menu-content block">
 								<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
@@ -173,13 +123,11 @@
 							</span>
 						</a>
 						<ul class="submenu bg-palette3">
-							<li><a href="#"><span class="submenu-label">统计总览</span></a></li>
-							<li><a href="#"><span class="submenu-label">体重监测</span></a></li>
-							<li><a href="#"><span class="submenu-label">运动目标</span></a></li>
-							<li><a href="#"><span class="submenu-label">睡眠监测</span></a></li>
+							<li id="menu_sport"><a href="my_sport.php"><span class="submenu-label">我的运动</span></a></li>
+							<li id="menu_health"><a href="my_health.php"><span class="submenu-label">健康监控</span></a></li>
 						</ul>
 					</li>
-					<li class="openable bg-palette4">
+					<li class="openable bg-palette4" id="menu_activity">
 						<a href="#">
 							<span class="menu-content block">
 								<span class="menu-icon"><i class="block fa fa-tags fa-lg"></i></span>
@@ -191,32 +139,25 @@
 							</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="#"><span class="submenu-label">发起活动</span></a></li>
-							<li><a href="#"><span class="submenu-label">发现活动</span></a></li>
-							<li><a href="#"><span class="submenu-label">我的活动</span></a></li>
+							<li id="menu_activity_new"><a href="activity_new.php"><span class="submenu-label">发起活动</span></a></li>
+							<li id="menu_activity_all"><a href="activity_all.php"><span class="submenu-label">发现活动</span></a></li>
+							<li id="menu_my_activity"><a href="my_activity.php"><span class="submenu-label">我的活动</span></a></li>
 						</ul>
 					</li>
-					<li class="openable bg-palette5">
-						<a href="#">
+					<li class="bg-palette5" id="menu_user_search">
+						<a href="user_search.php">
 							<span class="menu-content block">
-								<span class="menu-icon"><i class="block fa fa-envelope fa-lg"></i></span>
-								<span class="text m-left-sm">社交圈</span>
+								<span class="menu-icon"><i class="block fa fa-clock-o fa-lg"></i></span>
+								<span class="text m-left-sm">用户搜索</span>
+								<small class="badge badge-warning badge-square bounceIn animation-delay6 m-left-xs pull-right">7</small>
 							</span>
 							<span class="menu-content-hover block">
-								Inboxs
+								用户搜索
 							</span>
 						</a>
-						<ul class="submenu">
-							<li><a href="#"><span class="submenu-label">我的关注</span></a></li>
-							<li><a href="#"><span class="submenu-label">发现用户</span></a></li>
-							<li><a href="#">
-								<span class="submenu-label">聊天室</span>
-								<small class="badge badge-danger badge-square bounceIn animation-delay5 m-left-xs">5</small>
-							</a></li>
-						</ul>
 					</li>
-					<li class="bg-palette1">
-						<a href="#">
+					<li class="bg-palette1" id="menu_system_info">
+						<a href="system_info.html">
 							<span class="menu-content block">
 								<span class="menu-icon"><i class="block fa fa-clock-o fa-lg"></i></span>
 								<span class="text m-left-sm">系统相关</span>
