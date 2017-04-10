@@ -13,7 +13,6 @@ require_once '../controller/user_controller.php';
 require_once '../controller/activity_controller.php';
 require_once '../controller/sports_controller.php';
 require_once '../controller/social_club_controller.php';
-require_once '../controller/chat_controller.php';
 
 $app = new \Slim\App;
 $app->post('/api/login', function (Request $request, Response $response) {
@@ -318,7 +317,7 @@ $app->get('/api/user/{id}/weekly_rank/', function (Request $request, Response $r
 });
 $app->get('/api/user/{id}/messages/unread/', function (Request $request, Response $response,$args) {
     $id=$args['id'];
-    $controller = new chat_controller();
+    $controller = new social_club_controller();
     $response->getBody()->write($controller->getUnreadNumber($id));
 
     return $response;
@@ -326,7 +325,7 @@ $app->get('/api/user/{id}/messages/unread/', function (Request $request, Respons
 $app->get('/api/user/{oid}/messages/{fid}/', function (Request $request, Response $response,$args) {
     $oid=$args['oid'];
     $fid=$args['fid'];
-    $controller = new chat_controller();
+    $controller = new social_club_controller();
     $response->getBody()->write($controller->getMessages($oid,$fid));
 
     return $response;
@@ -336,7 +335,7 @@ $app->post('/api/user/{oid}/messages/{fid}/', function (Request $request, Respon
     $fid=$args['fid'];
     $data=$request->getParsedBody();
     $content = filter_var($data['content'], FILTER_SANITIZE_STRING);
-    $controller = new chat_controller();
+    $controller = new social_club_controller();
     $response->getBody()->write($controller->send($oid,$fid,$content));
 
     return $response;
