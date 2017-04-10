@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-//检测是否登录，若没登录则转向登录界面
-if(!isset($_SESSION['id'])){
-    header("Location:login.html");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -695,30 +686,26 @@ if(!isset($_SESSION['id'])){
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-12" style="font-size: 1.5rem">
-                            <div class="user-name m-top-sm">唐纳德·特朗普<i
-                                    class="fa fa-circle text-success m-left-xs font-14"></i></div>
+                            <div class="user-name m-top-sm" id="l_name"></div>
 
                             <div class="m-top-sm">
-                                <div>
-                                    <i class="fa fa-map-marker user-profile-icon" id="l_location"></i>
-                                    美国华盛顿白宫
-                                </div>
+                                <a id="l_location">
+
+                                </a>
 
                                 <div class="m-top-sm" id="l_job">
-                                    <i class="fa fa-briefcase user-profile-icon"></i>
-                                    总统
+
                                 </div>
 
                                 <div class="m-top-sm" id="l_email">
-                                    <i class="fa fa-external-link user-profile-icon"></i>
-                                    www.donaldjtrump.com
+
                                 </div>
                             </div>
 
 
                             <h4 class="m-top-md m-bottom-sm">关于我</h4>
-                            <p class="m-top-sm">
-                                Make America Great Again!
+                            <p class="m-top-sm" id="l_profile">
+
                             <p>
 
 
@@ -761,7 +748,7 @@ if(!isset($_SESSION['id'])){
                                                         <i class="fa fa-fire fa-2x"></i>
                                                     </div>
                                                     <div class="text-upper">燃烧卡路里</div>
-                                                    <div class="text-center" id="t_calorie">5123</div>
+                                                    <div class="text-center" id="t_calorie"></div>
                                                 </div>
                                             </div><!-- ./col -->
                                             <div class="col-sm-3 col-sm-6s">
@@ -770,7 +757,7 @@ if(!isset($_SESSION['id'])){
                                                         <i class="fa fa-retweet fa-2x"></i>
                                                     </div>
                                                     <div class="text-upper">运动总步数</div>
-                                                    <div class="text-center" id="t_steps">5123</div>
+                                                    <div class="text-center" id="t_steps"></div>
                                                 </div>
                                             </div><!-- ./col -->
                                             <div class="col-sm-3 col-sms-6">
@@ -779,7 +766,7 @@ if(!isset($_SESSION['id'])){
                                                         <i class="fa fa-location-arrow fa-2x"></i>
                                                     </div>
                                                     <div class="text-upper">运动总距离</div>
-                                                    <div class="text-center" id="t_miles">5123</div>
+                                                    <div class="text-center" id="t_miles"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3 col-sm-6s">
@@ -788,7 +775,7 @@ if(!isset($_SESSION['id'])){
                                                         <i class="fa fa-clock-o fa-2x"></i>
                                                     </div>
                                                     <div class="text-upper">运动总天数</div>
-                                                    <div class="text-center" id="t_days">5123</div>
+                                                    <div class="text-center" id="t_days"></div>
                                                 </div>
                                             </div>
                                         </div><!-- ./row -->
@@ -804,7 +791,7 @@ if(!isset($_SESSION['id'])){
                                                                 <i class="fa fa-circle-o fa-3x"></i>
                                                             </div>
                                                             <div class="text-upper">参加的活动</div>
-                                                            <div class="text-center" id="a_join">5123</div>
+                                                            <div class="text-center" id="a_join"></div>
                                                         </div>
                                                     </div><!-- ./col -->
                                                     <div class="col-sm-6">
@@ -813,7 +800,7 @@ if(!isset($_SESSION['id'])){
                                                                 <i class="fa fa-spinner fa-3x"></i>
                                                             </div>
                                                             <div class="text-upper">进行的活动</div>
-                                                            <div class="text-center" id="a_uncomplete">5123</div>
+                                                            <div class="text-center" id="a_uncomplete"></div>
                                                         </div>
                                                     </div><!-- ./col -->
                                                 </div>
@@ -828,7 +815,7 @@ if(!isset($_SESSION['id'])){
                                                                 <i class="fa fa-users fa-3x"></i>
                                                             </div>
                                                             <div class="text-upper">好友数</div>
-                                                            <div class="text-center" id="w_number">5123</div>
+                                                            <div class="text-center" id="w_number"></div>
                                                         </div>
                                                     </div><!-- ./col -->
                                                     <div class="col-sm-6">
@@ -837,17 +824,25 @@ if(!isset($_SESSION['id'])){
                                                                 <i class="fa fa-signal fa-3x"></i>
                                                             </div>
                                                             <div class="text-upper">朋友圈排名</div>
-                                                            <div class="text-center" id="w_rank">5123</div>
+                                                            <div class="text-center" id="w_rank"></div>
                                                         </div>
                                                     </div><!-- ./col -->
                                                 </div>
+                                                <div class="panel panel-default m-top-md">
+                                                    <div class="panel-heading">
+                                                        <i class="fa fa-twitter"></i> 周排名
+                                                    </div>
+                                                    <ul class="list-group" id="friend_rank">
+
+                                                    </ul><!-- /list-group -->
+                                                </div><!-- ./panel -->
 
 
                                             </div><!-- ./col -->
                                         </div><!-- ./row -->
                                     </div><!-- ./tab-pane -->
                                     <div class="tab-pane fade" id="profileTab2">
-                                        <h4 class="header-text m-top-md">General Information</h4>
+                                        <h4 class="header-text m-top-md">个人资料</h4>
                                         <form class="form-horizontal m-top-md">
 
                                             <div class="form-group">
@@ -870,7 +865,7 @@ if(!isset($_SESSION['id'])){
                                                 <label class="col-sm-3 control-label">等级&ensp;&ensp;&ensp;&ensp;</label>
                                                 <div class="col-sm-9">
                                                     <input name="level" id="level" type="number" class="form-control"
-                                                           value="" style="width: 60%">
+                                                           value="" style="width: 60%" readonly="readonly">
                                                 </div>
                                             </div>
 
@@ -878,7 +873,7 @@ if(!isset($_SESSION['id'])){
                                                 <label class="col-sm-3 control-label">经验&ensp;&ensp;&ensp;&ensp;</label>
                                                 <div class="col-sm-9">
                                                     <input name="exp" id="exp" type="number" class="form-control"
-                                                           value="" style="width: 60%">
+                                                           value="" style="width: 60%" readonly="readonly">
                                                 </div>
                                             </div>
 
@@ -890,6 +885,21 @@ if(!isset($_SESSION['id'])){
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label class="col-sm-3 control-label">地址&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="location" id="location" type="text"
+                                                           class="form-control"
+                                                           value="" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">职业&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="job" id="job" type="text" class="form-control"
+                                                           value="" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="col-sm-3 control-label">简介&ensp;&ensp;&ensp;&ensp;</label>
                                                 <div class="col-sm-9">
                                                     <textarea name="profile" id="profile" rows="3" class="form-control"
@@ -897,15 +907,27 @@ if(!isset($_SESSION['id'])){
                                                               style="width: 60%"></textarea>
                                                 </div>
                                             </div>
-
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">上传头像</label>
+                                                <div class="col-sm-9">
+                                                    <form enctype="multipart/form-data" action="/api/user/axy14/Avatar/"
+                                                          method="post">
+                                                        <input name="avatar" id="avatar" type="file"
+                                                               class="form-control"
+                                                               value="" style="width: 60%">
+                                                        <input type="submit" value="上传">
+                                                    </form>
+                                                </div>
+                                            </div>
 
                                             <div class="form-group m-top-lg">
                                                 <label class="col-sm-3 control-label"></label>
                                                 <div class="col-sm-9">
-                                                    <button class="btn btn-info m-left-xs" id="submit">保存</button>
+                                                    <button class="btn btn-info m-left-xs" id="submit1">保存</button>
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div><!-- ./tab-pane -->
                                     <div class="tab-pane fade" id="profileTab3">
                                         <div class="profile-follower-list clearfix">
@@ -1002,13 +1024,133 @@ if(!isset($_SESSION['id'])){
                             "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                             "<div class=\"m-top-sm\">" +
 
-                            "<button type=\"button\" class=\"btn btn-success btn-sm marginTB-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid=" + temp.id + "\">View Profile</a></button>" +
+                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid=" + temp.id + "\" style='color: inherit'>进入首页</a></button>" +
                             "</div> </div> </div> </div> </div>" + "</li>";
                         $("#following_list").append(tb);
                     }
                 });
             }
 
+        }
+    });
+</script>
+<script>
+    $.ajax("/api/user/axy14", {
+        type: 'GET',
+        async: false,
+        datatype: 'json',
+        success: function (result) {
+
+            data = JSON.parse(result);
+            $("#name").val(data.name);
+            $("#uid").val(data.id);
+            $("#level").val(data.level);
+            $("#exp").val(data.exp);
+            $("#email").val(data.email);
+            $("#profile").val(data.profile);
+            $("#job").val(data.job);
+            $("#location").val(data.location);
+            $("#l_name").append(data.name + "<i class=\"fa fa-circle text-success m-left-xs font-14\"></i>");
+            $("#l_email").append("<i class=\"fa fa-external-link user-profile-icon\"></i>" + data.email);
+            $("#l_profile").append(data.profile);
+            $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
+            $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
+
+        }
+    });
+    $("#submit1").on("click", function () {
+        em = $("#email").val();
+        pro = $("#profile").val();
+        jo = $("#job").val();
+        locatio = $("#location").val();
+        val = {
+            email: em,
+            profile: pro,
+            job: jo,
+            location: locatio
+        };
+        $.ajax("/api/user/axy14", {
+            type: 'PUT',
+            async: false,
+            data: val,
+            success: function (result) {
+                alert("更新成功");
+                window.location.href = "profile_new.html";
+            }
+        });
+    });
+</script>
+<script>
+    id = $("#id").text();
+    $.ajax("/api/user/axy14/sport_record_total", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            $("#t_steps").html(data.t_steps);
+            $("#t_miles").html(data.t_miles);
+            $("#t_calorie").html(data.t_calorie);
+        }
+    });
+    $.ajax("/api/user/axy14/sport_days", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            $("#t_days").html(data.t_days);
+        }
+    });
+    $.ajax("/api/user/axy14/activity_todo/", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            $("#a_uncomplete").html(data.length);
+        }
+    });
+    $.ajax("/api/user/axy14/activity/", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            $("#a_join").html(data.length);
+        }
+    });
+    $.ajax("/api/user/axy14/following/", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            $("#w_number").html(data.length);
+        }
+    });
+    $.ajax("/api/user/axy14/weekly_rank/", {
+        type: 'GET',
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            for (i = 0; i < data.length; i++) {
+                alert(data.id);
+            }
+            if (data.length == 0) {
+                $("#w_rank").html(1);
+            } else {
+
+                $.ajax("/api/user/axy14/sport_record_weekly", {
+                    type: 'GET',
+                    datatype: 'json',
+                    success: function (result) {
+                        data1 = JSON.parse(result);
+                        rank = 1;
+                        for (i = 0; i < data.length; i++) {
+                            if (data[i].w_steps > data1.w_steps) {
+                                rank++;
+                            }
+                        }
+                        $("#w_rank").html(rank);
+                    }
+                });
+            }
         }
     });
 </script>
