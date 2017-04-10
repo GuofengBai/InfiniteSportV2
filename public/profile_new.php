@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -670,7 +679,7 @@
     <div class="main-container">
         <div class="padding-md">
             <h3 class="header-text m-bottom-md">
-                TA的主页
+                我的主页
 
             </h3>
 
@@ -703,27 +712,43 @@
                             </div>
 
 
-                            <h4 class="m-top-md m-bottom-sm">关于TA</h4>
+                            <h4 class="m-top-md m-bottom-sm">关于我</h4>
                             <p class="m-top-sm" id="l_profile">
 
                             <p>
-                            <br>
-                            <br>
-                            <div class="m-top-sm text-centers">
-                                <button class="btn btn-info" id="submit">关注</button>
-                            </div>
+
+
                         </div>
                     </div><!-- ./row -->
                 </div><!-- ./col -->
                 <div class="col-md-9">
                     <div class="smart-widget">
                         <div class="smart-widget-inner">
-
+                            <ul class="nav nav-tabs tab-style2 tab-right bg-grey">
+                                <li>
+                                    <a href="#profileTab3" data-toggle="tab">
+                                        <span class="icon-wrapper"><i class="fa fa-eye"></i></span>
+                                        <span class="text-wrapper">我的关注</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#profileTab2" data-toggle="tab">
+                                        <span class="icon-wrapper"><i class="fa fa-book"></i></span>
+                                        <span class="text-wrapper">修改信息</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#profileTab1" data-toggle="tab">
+                                        <span class="icon-wrapper"><i class="fa fa-trophy"></i></span>
+                                        <span class="text-wrapper">社交主页</span>
+                                    </a>
+                                </li>
+                            </ul>
                             <div class="smart-widget-body">
                                 <div class="tab-content">
                                     <div class="tab-pane fade in active" id="profileTab1">
                                         <h4 class="header-text m-bottom-md">
-                                            TA的运动
+                                            我的运动
                                         </h4>
                                         <div class="row" style="font-size: 1.5rem">
                                             <div class="col-sm-3 col-sm-6s">
@@ -766,7 +791,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <h4 class="m-top-md">TA的活动</h4>
+                                                <h4 class="m-top-md">我的活动</h4>
 
                                                 <div class="row m-top-md">
                                                     <div class="col-sm-6">
@@ -825,7 +850,110 @@
                                             </div><!-- ./col -->
                                         </div><!-- ./row -->
                                     </div><!-- ./tab-pane -->
+                                    <div class="tab-pane fade" id="profileTab2" style="height: 800px">
+                                        <h4 class="header-text m-top-md">个人资料</h4>
+                                        <form class="form-horizontal m-top-md">
 
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">昵称&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="name" id="name" type="text" class="form-control"
+                                                           value="唐纳德·特朗普" readonly="readonly" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">id&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="uid" id="uid" type="text" class="form-control"
+                                                           value="user0" readonly="readonly" style="width: 60%">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">等级&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="level" id="level" type="number" class="form-control"
+                                                           value="" style="width: 60%" readonly="readonly">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">经验&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="exp" id="exp" type="number" class="form-control"
+                                                           value="" style="width: 60%" readonly="readonly">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">电子邮箱</label>
+                                                <div class="col-sm-9">
+                                                    <input name="email" id="email" type="text" class="form-control"
+                                                           value="" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">地址&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="location" id="location" type="text"
+                                                           class="form-control"
+                                                           value="" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">职业&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="job" id="job" type="text" class="form-control"
+                                                           value="" style="width: 60%">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">简介&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <textarea name="profile" id="profile" rows="3" class="form-control"
+                                                              placeholder="make America great again!"
+                                                              style="width: 60%"></textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group m-top-lg">
+                                                <label class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <button class="btn btn-info m-left-xs" id="submit1">保存</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <h4 class="header-text m-top-md">设置头像</h4>
+                                        <form class="form-horizontal m-top-md" id="uploadForm">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">上传头像</label>
+                                                <div class="col-sm-9">
+
+                                                    <input name="avatar" id="avatar" type="file"
+                                                           class="form-control"
+                                                           value="" style="width: 60%;">
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-9">
+                                                            <button name="submit" class="btn btn-info m-left-xs" onclick="doUpload()">上传</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                    </div><!-- ./tab-pane -->
+                                    <div class="tab-pane fade" id="profileTab3">
+                                        <div class="profile-follower-list clearfix">
+                                            <ul id="following_list">
+
+
+                                            </ul>
+                                        </div><!-- ./profile-follower-list -->
+                                    </div><!-- ./tab-pane -->
                                 </div><!-- ./tab-content -->
                             </div><!-- ./smart-widget-body -->
                         </div><!-- ./smart-widget-inner -->
@@ -892,32 +1020,105 @@
         });
     });
 </script>
-
 <script>
-    var str = window.location.search;
-    var index = str.indexOf("=");
-    var uid = str.substring(index + 1);
-    $.ajax("/api/user/" + uid, {
+    $.ajax("/api/user/axy14/following/", {
         type: 'GET',
         async: false,
         datatype: 'json',
         success: function (result) {
 
             data = JSON.parse(result);
+            for (i = 0; i < data.length; i++) {
+                $.ajax("/api/user/" + data[i].id, {
+                    type: 'GET',
+                    async: false,
+                    datatype: 'json',
+                    success: function (td) {
+                        temp = JSON.parse(td);
+                        var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
+                            "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                            "<div class=\"font-16\">" + temp.name + "</div>" +
+                            "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
+                            "<div class=\"m-top-sm\">" +
 
+                            "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=" + temp.id + "\"user_specific.php?uid=\" style='color: inherit'>进入首页</a></button>" +
+                            "</div> </div> </div> </div> </div>" + "</li>";
+                        $("#following_list").append(tb);
+                    }
+                });
+            }
+
+        }
+    });
+</script>
+<script>
+    $.ajax("/api/user/axy14", {
+        type: 'GET',
+        async: false,
+        datatype: 'json',
+        success: function (result) {
+
+            data = JSON.parse(result);
+            $("#name").val(data.name);
+            $("#uid").val(data.id);
+            $("#level").val(data.level);
+            $("#exp").val(data.exp);
+            $("#email").val(data.email);
+            $("#profile").val(data.profile);
+            $("#job").val(data.job);
+            $("#location").val(data.location);
             $("#l_name").append(data.name + "<i class=\"fa fa-circle text-success m-left-xs font-14\"></i>");
             $("#l_email").append("<i class=\"fa fa-external-link user-profile-icon\"></i>" + data.email);
             $("#l_profile").append(data.profile);
             $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
             $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
-            $('#l_avatar').append("<img src=" + data.avatar + ">");
+            $('#l_avatar').append("<img src="+data.avatar+">");
+
         }
     });
-
+    $("#submit1").on("click", function () {
+        em = $("#email").val();
+        pro = $("#profile").val();
+        jo = $("#job").val();
+        locatio = $("#location").val();
+        val = {
+            email: em,
+            profile: pro,
+            job: jo,
+            location: locatio
+        };
+        $.ajax("/api/user/axy14", {
+            type: 'PUT',
+            async: false,
+            data: val,
+            success: function (result) {
+                alert("更新成功");
+                window.location.href = "profile_new.php";
+            }
+        });
+    });
+    function doUpload() {
+        var formData = new FormData($( "#uploadForm" )[0]);
+        $.ajax({
+            url: '/api/user/axy14/avatar/' ,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                alert(returndata);
+            },
+            error: function (returndata) {
+                alert(returndata);
+            }
+        });
+    }
 </script>
 <script>
     id = $("#id").text();
-    $.ajax("/api/user/" + uid + "/sport_record_total", {
+    $.ajax("/api/user/axy14/sport_record_total", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -927,7 +1128,7 @@
             $("#t_calorie").html(data.t_calorie);
         }
     });
-    $.ajax("/api/user/" + uid + "/sport_days", {
+    $.ajax("/api/user/axy14/sport_days", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -935,7 +1136,7 @@
             $("#t_days").html(data.t_days);
         }
     });
-    $.ajax("/api/user/" + uid + "/activity_todo/", {
+    $.ajax("/api/user/axy14/activity_todo/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -943,7 +1144,7 @@
             $("#a_uncomplete").html(data.length);
         }
     });
-    $.ajax("/api/user/" + uid + "/activity/", {
+    $.ajax("/api/user/axy14/activity/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -951,7 +1152,7 @@
             $("#a_join").html(data.length);
         }
     });
-    $.ajax("/api/user/" + uid + "/following/", {
+    $.ajax("/api/user/axy14/following/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -959,7 +1160,7 @@
             $("#w_number").html(data.length);
         }
     });
-    $.ajax("/api/user/" + uid + "/weekly_rank/", {
+    $.ajax("/api/user/axy14/weekly_rank/", {
         type: 'GET',
         datatype: 'json',
         success: function (result) {
@@ -973,7 +1174,7 @@
                 $("#w_rank").html(1);
             } else {
 
-                $.ajax("/api/user/" + uid + "/sport_record_weekly", {
+                $.ajax("/api/user/axy14/sport_record_weekly", {
                     type: 'GET',
                     datatype: 'json',
                     success: function (result) {
@@ -988,56 +1189,6 @@
                     }
                 });
             }
-        }
-    });
-    $.ajax("/api/user/axy14/following/", {
-        type: 'GET',
-        async:false,
-        datatype:'json',
-        success: function (result) {
-
-            data=JSON.parse(result);
-
-            fo=0;
-
-            for(i=0;i<data.length;i++){
-                if(uid==data[i].id){
-                    fo=1;
-                    break;
-                }
-            }
-
-            if(fo==0){
-                $("#submit").html("关注");
-                $("#submit").on("click",function () {
-                    $.ajax("/api/user/axy14/following/", {
-                        type: 'POST',
-                        data: {followingid:uid},
-                        async:false,
-                        success: function (result) {
-                            data=JSON.parse(result);
-                            if(data.status=="false"){
-                                alert(data.detail);
-                            }else{
-                                window.location.href="user_specific.html?uid="+uid;
-                            }
-                        }
-                    });
-                });
-            }else{
-                $("#submit").html("取消关注");
-                $("#submit").on("click",function () {
-                    $.ajax("/api/user/axy14/following/", {
-                        type: 'DELETE',
-                        data: {followingid:uid},
-                        async:false,
-                        success: function (result) {
-                            window.location.href="user_specific.html?uid="+uid;
-                        }
-                    });
-                });
-            }
-
         }
     });
 </script>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+//检测是否登录，若没登录则转向登录界面
+if(!isset($_SESSION['id'])){
+    header("Location:login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -670,35 +679,49 @@
     <div class="main-container">
         <div class="padding-md">
             <h3 class="header-text m-bottom-md">
-                用户搜索
+                我的设定
 
             </h3>
 
 
             <div class="col-md-12">
-                <div class="smart-widget">
-                    <div class="smart-widget-inner">
 
-                        <div class="smart-widget-body">
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="profileTab1">
-                                    <div>
-                                        <input type="text" id="user_search" placeholder="请输入搜索的用户名" style="width: 30%"
-                                               class="form-control input-md inline-block">
-                                        <br><br>
-                                        <button class="btn btn-info m-left-xs" id="submit">搜索</button>
-                                    </div>
-                                    <div class="profile-follower-list clearfix">
-                                        <ul class="list-group" id="search_list">
+                <form class="form-horizontal m-top-md">
 
-                                        </ul>
-                                    </div>
-                                </div><!-- ./tab-pane -->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">旧密码&ensp;&ensp;&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="ops" id="ops" type="password" class="form-control"
+                                   value=""  style="width: 60%">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">新密码&ensp;&ensp;&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="nps" id="nps" type="password" class="form-control"
+                                   value=""  style="width: 60%">
+                        </div>
 
-                            </div><!-- ./tab-content -->
-                        </div><!-- ./smart-widget-body -->
-                    </div><!-- ./smart-widget-inner -->
-                </div><!-- ./smart-widget -->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">确认密码&ensp;&ensp;</label>
+                        <div class="col-sm-9">
+                            <input name="nnps" id="nnps" type="password" class="form-control"
+                                   value="" style="width: 60%" >
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group m-top-lg">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-info m-left-xs" id="submit">保存</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div><!-- ./padding-md -->
@@ -764,50 +787,39 @@
 
 <script>
 
-    var str = window.location.search;
-    var index = str.indexOf("=");
 
-    var search = str.substring(index + 1);
-    if (search != null && search != "") {
-        val = {
-            to_search: search
+    $("#submit").on("click",function () {
+        ops=$("#ops").val();
+        nps=$("#nps").val();
+        nnps=$("#nnps").val();
+        if(ops==""||nps==""||nnps==""){
+            alert("密码不能为空");
+            return;
+        }
+        if(nps!=nnps){
+            alert("两次输入密码不一致");
+            return;
+        }
+
+        val={
+            old_password:ops,
+            new_password:nps
         };
-
-        $.ajax("/api/user/search", {
-            type: 'POST',
-            data: val,
-            async: false,
-            datatype: 'json',
+        $.ajax("/api/user/axy14/password", {
+            type: 'PUT',
+            async:false,
+            data:val,
             success: function (result) {
-                data = JSON.parse(result);
-                for (i = 0; i < data.length; i++) {
-                    $.ajax("/api/user/" + data[i].id, {
-                        type: 'GET',
-                        async: false,
-                        datatype: 'json',
-                        success: function (td) {
-
-                            temp = JSON.parse(td);
-
-                            var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
-                                "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\"> </div> <div class=\"user-detail small-img\">" +
-                                "<div class=\"font-16\">" + temp.name + "</div>" +
-                                "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
-                                "<div class=\"m-top-sm\">" +
-
-                                "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.html?uid=" + temp.id + "\" style='color: inherit'>进入首页</a></button>" +
-                                "</div> </div> </div> </div> </div>" + "</li>";
-                            $("#search_list").append(tb);
-                        }
-                    });
+                data=JSON.parse(result);
+                if(data.status=="ok"){
+                    alert("更改成功");
+                    window.location.href="my_setting.php";
+                }else{
+                    alert("旧密码不正确");
                 }
-
             }
         });
-    }
-    $("#submit").on("click", function () {
-        search = $("#user_search").val();
-        window.location.href = "user_search.html?search=" + search;
+
     });
 </script>
 </body>
