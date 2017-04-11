@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by IntelliJ IDEA.
  * User: baiguofeng
@@ -50,7 +50,7 @@ if(!isset($_SESSION['id'])){
                         <div class="col-sm-12">
                             <div class="col-sm-12" style="height: 3rem;"></div>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="weight" placeholder="请输入你的体重/kg">
+                                <input type="text" class="form-control" id="weight" placeholder="请输入你的体重/kg">
                             </div><!-- /form-group -->
                             <div class="col-sm-3">
                                 <div class="col-lg-3">
