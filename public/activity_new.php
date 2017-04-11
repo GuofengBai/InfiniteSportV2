@@ -17,6 +17,7 @@
     <?php include "head.html";?>
     <head>
         <link href="css/activity.css" rel="stylesheet">
+        <link href="css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
     </head>
 
     <div class="main-container">
@@ -100,6 +101,8 @@
 	</div><!-- /main-container -->
     <?php include "middle.html";?>
     /*此处写js代码*/
+    <script src='js/pnotify.custom.min.js'></script>
+
     <script>
         id=$("#uid").text();
         $("#submit").on("click",function () {
@@ -121,12 +124,9 @@
                 async:false,
                 datatype:'json',
                 success: function (result) {
-                    data=JSON.parse(result);
-                    if(data.status=="ok"){
-                        window.location.href="my_activity.php";
-                    }else{
-                        alert(data.detail);
-                    }
+                    alert("活动创建成功");
+
+                    window.location.href="my_activity.php";
 
                 }
             });

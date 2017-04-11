@@ -167,12 +167,11 @@ if(!isset($_SESSION['id'])){
                                             data:{a_id:aid},
                                             async:false,
                                             success: function (result) {
-                                                data=JSON.parse(result);
-                                                if(data.status=="ok"){
-                                                    window.location.href="my_activity.php";
-                                                }else {
-                                                    alert(data.detail);
-                                                }
+                                                alert("加入成功");
+                                                window.location.href="my_activity.php";
+
+
+
                                             }
                                         });
                                     });

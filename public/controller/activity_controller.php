@@ -41,7 +41,7 @@ class activity_controller
             $val=array("status"=>"false","detail"=>"等级不够");
             return json_encode($val);
         }
-        $query = "insert into activity(name,creator,start_date,end_date,description,bonus) values('$aname','$uid','$start_date','$end_date','$description','bonus')";
+        $query = "insert into activity(name,creator,start_date,end_date,description,bonus) values('$aname','$uid','$start_date','$end_date','$description','$bonus')";
         $statement = $this->db->operate($query);
         if(!$statement){
             $val=array("status"=>"false");
