@@ -323,7 +323,7 @@ if (!isset($_SESSION['id'])) {
                         success: function (td) {
                             temp = JSON.parse(td);
                             var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
-                                "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=" + temp.avatar + "alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                                "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=" + temp.avatar + "> </div> <div class=\"user-detail small-img\">" +
                                 "<div class=\"font-16\">" + temp.name + "</div>" +
                                 "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                                 "<div class=\"m-top-sm\">" +
@@ -382,7 +382,7 @@ if (!isset($_SESSION['id'])) {
                 data: val,
                 success: function (result) {
                     alert("更新成功");
-                    window.location.href = "profile_new.php";
+                    window.location.href = "main.php";
                 }
             });
         });
@@ -396,8 +396,7 @@ if (!isset($_SESSION['id'])) {
                 cache: false,
                 contentType: false,
                 processData: false,
-                success: function (returndata) {
-                    alert(returndata);
+                success: function (returndata){
                 },
                 error: function (returndata) {
                     alert(returndata);

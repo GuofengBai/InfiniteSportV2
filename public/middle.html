@@ -2,9 +2,9 @@
 				<span class="footer-brand">
 					<strong class="text-danger">Infinite</strong> Sport
 				</span>
-	<p class="no-margin">
-		&copy; 2017 <strong>Infinite Sport</strong>. ALL Rights Reserved.
-	</p>
+    <p class="no-margin">
+        &copy; 2017 <strong>Infinite Sport</strong>. ALL Rights Reserved.
+    </p>
 </footer>
 </div><!-- /wrapper -->
 
@@ -57,61 +57,61 @@
 <script src="js/echarts.min.js"></script>
 
 <script>
-	
-	if(window.location.pathname=="/main.php"){
-	    $("#menu_main").addClass("active");
-	}else if(window.location.pathname=="/my_sport.php"){
-	    $("#menu_sh").addClass("open");
-	    $("#menu_sport").addClass("active");
-	}else if(window.location.pathname=="/my_health.php"){
+
+    if (window.location.pathname == "/main.php") {
+        $("#menu_mainpage").addClass("active");
+    } else if (window.location.pathname == "/my_sport.php") {
+        $("#menu_sh").addClass("open");
+        $("#menu_sport").addClass("active");
+    } else if (window.location.pathname == "/my_health.php") {
         $("#menu_sh").addClass("open");
         $("#menu_health").addClass("active");
-	}else if(window.location.pathname=="/my_activity.php"){
+    } else if (window.location.pathname == "/my_activity.php") {
         $("#menu_activity").addClass("open");
         $("#menu_my_activity").addClass("active");
-	}else if(window.location.pathname=="/activity_new.php"){
+    } else if (window.location.pathname == "/activity_new.php") {
         $("#menu_activity").addClass("open");
         $("#menu_activity_new").addClass("active");
-	}else if(window.location.pathname=="/activity_all.php"){
+    } else if (window.location.pathname == "/activity_all.php") {
         $("#menu_activity").addClass("open");
         $("#menu_activity_all").addClass("active");
-	}else if(window.location.pathname=="/user_search.php"){
+    } else if (window.location.pathname == "/user_search.php") {
         $("#menu_user_search").addClass("active");
-	}else if(window.location.pathname=="/system_info.html"){
+    } else if (window.location.pathname == "/system_info.html") {
         $("#menu_system_info").addClass("active");
-	}
-	
-	var id = $("#id").text();
+    }
 
-    $.ajax("/api/user/"+id, {
+    var id = $("#id").text();
+
+    $.ajax("/api/user/" + id, {
         type: 'GET',
         async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
-            $("#top_avatar").attr('src',data.avatar);
+            $("#top_avatar").attr('src', data.avatar);
         }
     });
 
-    $.ajax("/api/user/"+id+"/messages/unread/", {
+    $.ajax("/api/user/" + id + "/messages/unread/", {
         type: 'GET',
         async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
-            total=0;
-            for(i=0;i<data.length;i++){
-                total+=data[i].num;
-                toAppend="<li>"+
-                    "<a class=\"clearfix\" href=\"#\">"+
-                    "<img src=\""+data[i].avatar+"\" alt=\"User Avatar\">"+
-                    "<div class=\"detail m-left-sm\">"+
-                    "<strong>"+data[i].sender+"</strong>"+
-                "<span class=\"badge badge-green bounceIn animation-delay5 active\">"+data[i].num+"</span>"+
+            total = 0;
+            for (i = 0; i < data.length; i++) {
+                total += data[i].num;
+                toAppend = "<li>" +
+                    "<a class=\"clearfix\" href=\"user_specific.php?uid=" + data[i].sender + "\">" +
+                    "<img src=" + data[i].avatar + " alt=\"User Avatar\">" +
+                    "<div class=\"detail m-left-sm\">" +
+                    "<strong>" + data[i].sender + "</strong>" +
+                    "<span class=\"badge badge-green bounceIn animation-delay5 active\">" + data[i].num + "</span>" +
                     "</div> </a></li>";
                 $("messages_list").append(toAppend);
             }
-            $(".messages_num").val(total);
+            $(".messages_num").text(total);
         }
     });
 </script>
