@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <span style="display: none" id="uid"><?php echo $_SESSION["id"]?></span>
-                            <button type="submit" class="btn btn-success btn-sm short" id="submit" style="margin-left: 80%">提交</button>
+                            <button  class="btn btn-success btn-sm short" id="submit" style="margin-left: 80%">提交</button>
                         </form>
                     </div>
                 </div><!-- ./smart-widget-inner -->
@@ -105,7 +105,7 @@
 
     <script>
         id=$("#uid").text();
-        $("#submit").on("click",function () {
+        $("#submit").on("click", function () {
             an=$("#aname").val();
             ab=$("#abonus").val();
             sd=$("#astart").val();
@@ -125,10 +125,11 @@
                 datatype:'json',
                 success: function (result) {
                     alert("活动创建成功");
-
                     window.location.href="my_activity.php";
+                    window.event.returnValue = false;
 
                 }
+
             });
 
         });
