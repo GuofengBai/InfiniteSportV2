@@ -99,7 +99,7 @@
         }
         $("#submit").on("click", function () {
             search = $("#user_search").val();
-            window.location.href = "user_search.html?search=" + search;
+            window.location.href = "user_search.php?search=" + search;
         });
     </script>
 
