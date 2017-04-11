@@ -61,7 +61,7 @@ function insertSports()
             $t = date("Y-m-d", $y + $k * 24 * 3600);
             $miles = rand(2, 10);
             $calorie = ceil($miles * randomFloat(50, 70));
-            $steps = $miles * $footstep+rand(20,120);
+            $steps = $miles * $footstep + rand(20, 120);
             $id = "user" . $i;
             $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$t','$steps','$miles','$calorie');";
             $db->operate($sql);
@@ -69,23 +69,46 @@ function insertSports()
         }
     }
 }
+
 function insertSportsaxy()
 {
     $db = database::getInstance();
 
-        $footstep = 2500;
-        $k = 0;
-        for ($j = strtotime('2017-02-11'); $j < strtotime('2017-04-12'); $j += 86400) {
-            $y = mktime(0, 0, 0, 03, 11, 2017);
-            $t = date("Y-m-d", $y + $k * 24 * 3600);
-            $miles = rand(8, 9);
-            $calorie = ceil($miles * randomFloat(55, 65));
-            $steps = $miles * $footstep+rand(20,120);
-            $id = "axy14";
-            $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$t','$steps','$miles','$calorie');";
-            $db->operate($sql);
-            $k++;
-        }
+    $footstep = 2500;
+    $k = 0;
+    for ($j = strtotime('2017-02-11'); $j < strtotime('2017-04-12'); $j += 86400) {
+        $y = mktime(0, 0, 0, 03, 11, 2017);
+        $t = date("Y-m-d", $y + $k * 24 * 3600);
+        $miles = rand(8, 9);
+        $calorie = ceil($miles * randomFloat(55, 65));
+        $steps = $miles * $footstep + rand(20, 120);
+        $id = "axy14";
+        $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$t','$steps','$miles','$calorie');";
+        $db->operate($sql);
+        $k++;
+    }
+
+}
+
+function insertSportsbgf()
+{
+    $db = database::getInstance();
+
+    $footstep = 2200;
+    $k = 0;
+    for ($j = strtotime('2017-02-11'); $j < strtotime('2017-03-12'); $j += 86400) {
+        $y = mktime(0, 0, 0, 03, 11, 2017);
+        $t = date("Y-m-d", $y + $k * 24 * 3600);
+        $miles = rand(8, 9);
+        if ($k >= 20)
+            $miles = rand(1, 2);
+        $calorie = ceil($miles * randomFloat(55, 65));
+        $steps = $miles * $footstep + rand(20, 120);
+        $id = "bgf14";
+        $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$t','$steps','$miles','$calorie');";
+        $db->operate($sql);
+        $k++;
+    }
 
 }
 
@@ -95,7 +118,7 @@ function insertWeight()
     for ($i = 0; $i < 50; $i++) {
         $k = 0;
         $wei = rand(45, 75);
-        for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j += 86400*rand(7,14)) {
+        for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j += 86400 * rand(7, 14)) {
             $y = mktime(0, 0, 0, 03, 11, 2017);
             $t = date("Y-m-d", $y + $k * 24 * 3600);
             $weight = $wei + rand(0, 4);
@@ -106,21 +129,40 @@ function insertWeight()
         }
     }
 }
+
 function insertWeightaxy()
 {
     $db = database::getInstance();
 
-        $k = 0;
-        $wei = 66;
-        for ($j = strtotime('2017-02-11'); $j < strtotime('2017-04-12'); $j += 86400) {
-            $y = mktime(0, 0, 0, 03, 11, 2017);
-            $t = date("Y-m-d", $y + $k * 24 * 3600);
-            $weight = $wei + rand(0, 4);
-            $id = "user" . $i;
-            $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$t','$weight');";
-            $db->operate($sql);
-            $k++;
-        }
+    $k = 0;
+    $wei = 66;
+    for ($j = strtotime('2017-02-11'); $j < strtotime('2017-04-12'); $j += 86400) {
+        $y = mktime(0, 0, 0, 03, 11, 2017);
+        $t = date("Y-m-d", $y + $k * 24 * 3600);
+        $weight = $wei + rand(0, 4);
+        $id = "axy14";
+        $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$t','$weight');";
+        $db->operate($sql);
+        $k++;
+    }
+
+}
+
+function insertWeightbgf()
+{
+    $db = database::getInstance();
+
+    $k = 0;
+    $wei = 80;
+    for ($j = strtotime('2017-01-01'); $j < strtotime('2017-02-11'); $j += 86400) {
+        $y = mktime(0, 0, 0, 01, 01, 2017);
+        $t = date("Y-m-d", $y + $k * 24 * 3600);
+        $weight = ceil($wei + rand(0, 4) + 0.3 * $k);
+        $id = "bgf14";
+        $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$t','$weight');";
+        $db->operate($sql);
+        $k++;
+    }
 
 }
 
@@ -129,11 +171,11 @@ function insertSleep()
     $db = database::getInstance();
     for ($i = 0; $i < 50; $i++) {
         $k = 0;
-        $stand=rand(300,540);
+        $stand = rand(300, 540);
         for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j += 86400) {
             $y = mktime(0, 0, 0, 03, 11, 2017);
             $t = date("Y-m-d", $y + $k * 24 * 3600);
-            $full_sleep = $stand+rand(30,60)-rand(30,60);
+            $full_sleep = $stand + rand(30, 60) - rand(30, 60);
             $deep_sleep = $full_sleep - rand(100, 150);
             $id = "user" . $i;
             $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$t','$full_sleep','$deep_sleep');";
@@ -148,27 +190,31 @@ function insertSleepaxy()
     $db = database::getInstance();
 
 
-        $k1 = 0;
-        $stand2=420;
-        for ($j = strtotime('2016-09-11'); $j < strtotime('2017-02-12'); $j += 86400) {
-            $y = mktime(0, 0, 0, 03, 11, 2017);
-            $t = date("Y-m-d", $y + $k1 * 24 * 3600);
-            $full_sleep = $stand2+rand(30,60)-rand(30,60);
-            $deep_sleep = $full_sleep - rand(100, 150);
-            $id = "axy14";
-            $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$t','$full_sleep','$deep_sleep');";
-            $db->operate($sql);
-            $k1++;
-        }
+    $k1 = 0;
+    $stand2 = 420;
+    for ($j = strtotime('2016-09-11'); $j < strtotime('2017-02-12'); $j += 86400) {
+        $y = mktime(0, 0, 0, 03, 11, 2017);
+        $t = date("Y-m-d", $y + $k1 * 24 * 3600);
+        $full_sleep = $stand2 + rand(30, 60) - rand(30, 60);
+        $deep_sleep = $full_sleep - rand(100, 150);
+        $id = "axy14";
+        $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$t','$full_sleep','$deep_sleep');";
+        $db->operate($sql);
+        $k1++;
+    }
 
 }
-function insertGoal(){
+
+function insertGoal()
+{
     $db = database::getInstance();
     for ($i = 0; $i < 50; $i++) {
-        $goal=rand(4,12)*5;
+        $goal = rand(4, 12) * 5;
         $id = "user" . $i;
-        $sql="INSERT INTO weekly_goal(ownerid,goal) VALUES('$id','$goal');";
+        $sql = "INSERT INTO weekly_goal(ownerid,goal) VALUES('$id','$goal');";
         $db->operate($sql);
     }
 }
 
+
+insertWeightbgf();
