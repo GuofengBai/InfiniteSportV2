@@ -58,7 +58,7 @@ if(!isset($_SESSION['id'])){
                                 </div><!-- /.col -->
                             </div><!-- /form-group -->
                         </div>
-                        <div class="col-lg-8" style="height: 3rem;"></div>
+                        <div class="col-lg-8" style="height: 1rem;"></div>
                         <div class="col-sm-12">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -78,6 +78,19 @@ if(!isset($_SESSION['id'])){
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-sm-12">
+                            <div class="col-sm-12" style="height: 1rem;"></div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="height" placeholder="请输入你的身高/cm">
+                            </div><!-- /form-group -->
+                            <div class="col-sm-3">
+                                <div class="col-lg-3">
+                                    <button id="caculate" class="btn btn-success btn-sm" onclick="Caculate()">计算</button>
+                                </div><!-- /.col -->
+                            </div><!-- /form-group -->
+                        </div>
+
                     </div>
 
 
@@ -110,12 +123,14 @@ if(!isset($_SESSION['id'])){
         // 基于准备好的dom，初始化echarts实例
 
 
+        var tizhong;
         $.ajax("/api/user/"+id+"/weight_record/", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
                 wd=JSON.parse(result);
                 data=[];
+                tizhong = wd[wd.length-1].weight;
                 for(i=0;i<wd.length;i++){
                     data.push([wd[i].publish_date,wd[i].weight]);
                 }
@@ -238,9 +253,33 @@ if(!isset($_SESSION['id'])){
                 }
             });
         });
-
-
-
+        
+        function Caculate() {
+            var he = $("#height").val();
+            if(!(he>0)){
+                return;
+            }
+            var wei = (he-103)*0.91;
+            var text;
+            if(tizhong>wei*1.2){
+                text = "你超重了";
+            }else{
+                if(tizhong>wei*1.1){
+                    text = "你有些胖了";
+                }else {
+                    if(tizhong<wei*0.9){
+                        text = "你有些瘦了";
+                    }else {
+                        if (tizhong < wei * 0.8) {
+                            text = "你太瘦了";
+                        } else {
+                            text = "你的体重很正常";
+                        }
+                    }
+                }
+            }
+            document.getElementById("height").value = text;
+        }
     </script>
 
 <?php include "end.html";?>
