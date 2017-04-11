@@ -79,8 +79,8 @@ class user_controller
         return json_encode($val);
     }
 
-    function updateUser($id,$email,$profile,$location,$job){
-        $query = "update user set email='$email',profile='$profile',location='$location',job='$job' where id='$id'";
+    function updateUser($id,$email,$profile,$location,$job,$name){
+        $query = "update user set email='$email',profile='$profile',location='$location',job='$job',name='$name' where id='$id'";
         $statement = $this->db->operate($query);
         if($statement){
             $val=array("status"=>"ok");

@@ -6,15 +6,15 @@
  * Time: 20:34
  */
 
-    session_start();
+session_start();
 
-    //检测是否登录，若没登录则转向登录界面
-    if(!isset($_SESSION['id'])){
-        header("Location:index.html");
-        exit();
-    }
+//检测是否登录，若没登录则转向登录界面
+if (!isset($_SESSION['id'])) {
+    header("Location:index.html");
+    exit();
+}
 ?>
-    <?php include "head.html";?>
+<?php include "head.html"; ?>
 
     <div class="main-container">
         <div class="padding-md">
@@ -194,13 +194,7 @@
                                         <h4 class="header-text m-top-md">个人资料</h4>
                                         <form class="form-horizontal m-top-md">
 
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label">昵称&ensp;&ensp;&ensp;&ensp;</label>
-                                                <div class="col-sm-9">
-                                                    <input name="name" id="name" type="text" class="form-control"
-                                                           value="唐纳德·特朗普" readonly="readonly" style="width: 60%">
-                                                </div>
-                                            </div>
+
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">id&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</label>
                                                 <div class="col-sm-9">
@@ -225,7 +219,13 @@
                                                            value="" style="width: 60%" readonly="readonly">
                                                 </div>
                                             </div>
-
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">昵称&ensp;&ensp;&ensp;&ensp;</label>
+                                                <div class="col-sm-9">
+                                                    <input name="name" id="name" type="text" class="form-control"
+                                                           value="唐纳德·特朗普" style="width: 60%">
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">电子邮箱</label>
                                                 <div class="col-sm-9">
@@ -277,7 +277,9 @@
                                                     <br><br>
                                                     <div class="form-group">
                                                         <div class="col-sm-9">
-                                                            <button name="submit" class="btn btn-info m-left-xs" onclick="doUpload()">上传</button>
+                                                            <button name="submit" class="btn btn-info m-left-xs"
+                                                                    onclick="doUpload()">上传
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -304,9 +306,9 @@
     </div><!-- /main-container -->
 
 
-    <?php include "middle.html";?>
+<?php include "middle.html"; ?>
     <script>
-        $.ajax("/api/user/"+id+"/following/", {
+        $.ajax("/api/user/" + id + "/following/", {
             type: 'GET',
             async: false,
             datatype: 'json',
@@ -321,12 +323,12 @@
                         success: function (td) {
                             temp = JSON.parse(td);
                             var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
-                                "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src="+temp.avatar+ "alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                                "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=" + temp.avatar + "alt=\"\"> </div> <div class=\"user-detail small-img\">" +
                                 "<div class=\"font-16\">" + temp.name + "</div>" +
                                 "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                                 "<div class=\"m-top-sm\">" +
 
-                                "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid="+ temp.id + "\" style='color: inherit'>进入首页</a></button>" +
+                                "<button type=\"button\" class=\"btn btn-info m-left-xs\" data-toggle=\"modal\"><a href=\"user_specific.php?uid=" + temp.id + "\" style='color: inherit'>进入首页</a></button>" +
                                 "</div> </div> </div> </div> </div>" + "</li>";
                             $("#following_list").append(tb);
                         }
@@ -337,7 +339,7 @@
         });
     </script>
     <script>
-        $.ajax("/api/user/"+id, {
+        $.ajax("/api/user/" + id, {
             type: 'GET',
             async: false,
             datatype: 'json',
@@ -357,7 +359,7 @@
                 $("#l_profile").append(data.profile);
                 $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
                 $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
-                $('#l_avatar').append("<img src="+data.avatar+">");
+                $('#l_avatar').append("<img src=" + data.avatar + ">");
 
             }
         });
@@ -366,13 +368,15 @@
             pro = $("#profile").val();
             jo = $("#job").val();
             locatio = $("#location").val();
+            nam = $("#name").val();
             val = {
                 email: em,
                 profile: pro,
                 job: jo,
-                location: locatio
+                location: locatio,
+                name: nam
             };
-            $.ajax("/api/user/"+id, {
+            $.ajax("/api/user/" + id, {
                 type: 'PUT',
                 async: false,
                 data: val,
@@ -383,9 +387,9 @@
             });
         });
         function doUpload() {
-            var formData = new FormData($( "#uploadForm" )[0]);
+            var formData = new FormData($("#uploadForm")[0]);
             $.ajax({
-                url: '/api/user/'+id+'/avatar/' ,
+                url: '/api/user/' + id + '/avatar/',
                 type: 'POST',
                 data: formData,
                 async: false,
@@ -403,7 +407,7 @@
     </script>
     <script>
         id = $("#id").text();
-        $.ajax("/api/user/"+id+"/sport_record_total", {
+        $.ajax("/api/user/" + id + "/sport_record_total", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -413,7 +417,7 @@
                 $("#t_calorie").html(data.t_calorie);
             }
         });
-        $.ajax("/api/user/"+id+"/sport_days", {
+        $.ajax("/api/user/" + id + "/sport_days", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -421,7 +425,7 @@
                 $("#t_days").html(data.t_days);
             }
         });
-        $.ajax("/api/user/"+id+"/activity_todo/", {
+        $.ajax("/api/user/" + id + "/activity_todo/", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -429,7 +433,7 @@
                 $("#a_uncomplete").html(data.length);
             }
         });
-        $.ajax("/api/user/"+id+"/activity/", {
+        $.ajax("/api/user/" + id + "/activity/", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -437,7 +441,7 @@
                 $("#a_join").html(data.length);
             }
         });
-        $.ajax("/api/user/"+id+"/following/", {
+        $.ajax("/api/user/" + id + "/following/", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -445,7 +449,7 @@
                 $("#w_number").html(data.length);
             }
         });
-        $.ajax("/api/user/"+id+"/weekly_rank/", {
+        $.ajax("/api/user/" + id + "/weekly_rank/", {
             type: 'GET',
             datatype: 'json',
             success: function (result) {
@@ -459,7 +463,7 @@
                     $("#w_rank").html(1);
                 } else {
 
-                    $.ajax("/api/user/"+id+"/sport_record_weekly", {
+                    $.ajax("/api/user/" + id + "/sport_record_weekly", {
                         type: 'GET',
                         datatype: 'json',
                         success: function (result) {
@@ -478,4 +482,4 @@
         });
     </script>
 
-    <?php include "end.html";?>
+<?php include "end.html"; ?>

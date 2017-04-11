@@ -52,8 +52,9 @@ $app->put('/api/user/{id}', function (Request $request, Response $response,$args
     $profile=filter_var($data['profile'], FILTER_SANITIZE_STRING);
     $location=filter_var($data['location'], FILTER_SANITIZE_STRING);
     $job=filter_var($data['job'], FILTER_SANITIZE_STRING);
+    $name=filter_var($data['name'], FILTER_SANITIZE_STRING);
     $controller = new user_controller();
-    $response->getBody()->write($controller->updateUser($id,$email,$profile,$location,$job));
+    $response->getBody()->write($controller->updateUser($id,$email,$profile,$location,$job,$name));
     return $response;
 });
 $app->put('/api/user/{id}/password', function (Request $request, Response $response,$args) {
