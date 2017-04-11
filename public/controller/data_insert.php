@@ -18,14 +18,28 @@ function randomDate($begintime, $endtime)
 function insertUser()
 {
     $db=database::getInstance();
-    for ($i = 100; $i < 200; $i++) {
+    for ($i = 0; $i < 100; $i++) {
         $id = "user".$i;
-        $name = "user".$i;
+        $name = "用户".$i."号";
         $password = "123456";
         $level = rand(0, 10);
         $exp = $level*30+rand(0, 30);
-        echo $i."   ".$id."   ".$name;
-        $query = "insert into user(id,name,password,level,exp) values('$id','$name','$password','$level','$exp')";
+        $profile="大家好，我是沙瑞金书记的".$i."号保镖";
+        $email="user".$i."@gamil.com";
+        $location="江苏省南京市鼓楼区汉口路".$i."号";
+        $yushu=$i%5;
+        $job="测试工程师";
+        if($yushu==3)
+            $job="外滩银行家";
+        elseif($yushu==1)
+            $job="宗教裁判官";
+        elseif ($yushu==2)
+            $job="摩托赛车手";
+        elseif ($yushu==4)
+            $job="人社局公务员";
+        $avatar="images/default_avatar.jpg";
+        echo $i."   ".$id."   ".$name."   ".$profile."   ".$location."   ".$job;
+        $query = "insert into user(id,name,password,level,exp,profile,email,location,job,avatar) values('$id','$name','$password','$level','$exp','$profile','$email','$location','$job','$avatar')";
         $db->operate($query);
     }
 }
@@ -33,15 +47,18 @@ function insertUser()
 function insertSports()
 {
     $db=database::getInstance();
-    for ($i = 0; $i < 200; $i++) {
-        for ($j = 0; $j < 100; $j++) {
-            $date = randomDate("2015-01-01", "2015-12-31");
-            $miles = rand(0, 10);
-            $calorie = rand(500, 5000);
-            $steps = rand(10, 30000);
+    for ($i = 0; $i < 100; $i++) {
+        $k=0;
+        for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j+=86400) {
+            $y = mktime(0,0,0,03,11,2017);
+            $t=date("Y-m-d", $y+$k*24*3600);
+            $miles = rand(2, 10);
+            $calorie = rand(120, 600);
+            $steps = rand(5000, 25000);
             $id = "user".$i;
-            $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$date','$steps','$miles','$calorie');";
+            $sql = "INSERT INTO sport_record(ownerid,publish_date,steps,miles,calorie) VALUES ('$id','$t','$steps','$miles','$calorie');";
             $statement = $db->operate($sql);
+            $k++;
         }
     }
 }
@@ -49,12 +66,15 @@ function insertSports()
 function insertWeight()
 {
     $db=database::getInstance();
-    for ($i = 0; $i < 200; $i++) {
-        for ($j = 0; $j < 50; $j++) {
-            $date = randomDate("2016-01-01", "2016-12-04");
-            $weight = 60+rand(0, 20);
+    for ($i = 0; $i < 100; $i++) {
+        $k=0;
+        $wei=rand(45,75);
+        for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j+=86400) {
+            $y = mktime(0,0,0,03,11,2017);
+            $t=date("Y-m-d", $y+$k*24*3600);
+            $weight = $wei+rand(0,4);
             $id = "user".$i;
-            $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$date','$weight');";
+            $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$t','$weight');";
             $db->operate($sql);
         }
     }
@@ -62,13 +82,15 @@ function insertWeight()
 
 function insertSleep(){
     $db=database::getInstance();
-    for ($i = 0; $i < 200; $i++) {
-        for ($j = 0; $j < 50; $j++) {
-            $date = randomDate("2016-01-01", "2016-12-04");
-            $full_sleep = 200+rand(0, 200);
-            $deep_sleep = $full_sleep-rand(100,200);
+    for ($i = 0; $i < 100; $i++) {
+        $k=0;
+        for ($j = strtotime('2017-03-11'); $j < strtotime('2017-04-11'); $j+=86400) {
+            $y = mktime(0,0,0,03,11,2017);
+            $t=date("Y-m-d", $y+$k*24*3600);
+            $full_sleep = 300+rand(0, 240);
+            $deep_sleep = $full_sleep-rand(100,150);
             $id = "user".$i;
-            $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$date','$full_sleep','$deep_sleep');";
+            $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$t','$full_sleep','$deep_sleep');";
             $db->operate($sql);
         }
     }
