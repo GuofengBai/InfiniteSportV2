@@ -396,8 +396,7 @@ if (!isset($_SESSION['id'])) {
                 cache: false,
                 contentType: false,
                 processData: false,
-                success: function (returndata) {
-                    alert(returndata);
+                success: function (returndata){
                 },
                 error: function (returndata) {
                     alert(returndata);

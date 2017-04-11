@@ -59,7 +59,7 @@
 <script>
 	
 	if(window.location.pathname=="/main.php"){
-	    $("#menu_main").addClass("active");
+	    $("#menu_mainpage").addClass("active");
 	}else if(window.location.pathname=="/my_sport.php"){
 	    $("#menu_sh").addClass("open");
 	    $("#menu_sport").addClass("active");
@@ -103,7 +103,7 @@
             for(i=0;i<data.length;i++){
                 total+=data[i].num;
                 toAppend="<li>"+
-                    "<a class=\"clearfix\" href=\"#\">"+
+                    "<a class=\"clearfix\" href=\"user_specific.php?uid="+data[i].sender+"\">"+
                     "<img src=\""+data[i].avatar+"\" alt=\"User Avatar\">"+
                     "<div class=\"detail m-left-sm\">"+
                     "<strong>"+data[i].sender+"</strong>"+
@@ -111,7 +111,7 @@
                     "</div> </a></li>";
                 $("messages_list").append(toAppend);
             }
-            $(".messages_num").val(total);
+            $(".messages_num").text(total);
         }
     });
 </script>
