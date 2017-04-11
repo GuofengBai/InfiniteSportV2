@@ -9,6 +9,9 @@
     }
 ?>
     <?php include "head.html";?>
+    <head>
+        <link href="css/activity.css" rel="stylesheet">
+    </head>
 
     <div class="main-container">
         <div class="padding-md">
@@ -30,11 +33,7 @@
                 </thead>
                 <tbody id="a_list">
                 <tr>
-                    <td><a href="#" style="font-weight: bold"> 活动1</a> </td>
-                    <td>2017-4-8</td>
-                    <td>2017-4-9</td>
-                    <td>100</td>
-                    <td>发起人1</td>
+
                 </tr>
 
                 </tbody>

@@ -15,6 +15,9 @@
     }
 ?>
     <?php include "head.html";?>
+    <head>
+        <link href="css/activity.css" rel="stylesheet">
+    </head>
 
     <div class="main-container">
         <div class="padding-md">

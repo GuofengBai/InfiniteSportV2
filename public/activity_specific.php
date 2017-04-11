@@ -9,6 +9,10 @@ if(!isset($_SESSION['id'])){
 }
 ?>
 <?php include "head.html";?>
+<head>
+    <link href="css/activity.css" rel="stylesheet">
+</head>
+
 
     <div class="main-container">
         <div class="padding-md">
@@ -18,6 +22,7 @@ if(!isset($_SESSION['id'])){
 
 						</span>
             </h2>
+            <span style="display: none" id="uid"><?php echo $_SESSION["id"]?></span>
             <div class="smart-widget m-top-lg widget-dark-blue">
                 <div class="smart-widget-header">
                     <span id="aname" style="font-size: 18px">活动名</span>
@@ -25,30 +30,30 @@ if(!isset($_SESSION['id'])){
                 <div class="smart-widget-inner">
 
                     <div class="smart-widget-body">
-                        <form>
+                        <form class="form-horizontal m-top-md">
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">发起人</label>
-                                <label class="col-lg-2 control-label after" ><a id="acreator">用户1</a></label>
+                                <label class="col-lg-10 control-label after" ><a id="acreator">用户1</a></label>
 
                             </div><!-- /form-group -->
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">开始时间</label>
-                                <label class="col-lg-2 control-label after"style="width: 150px"><p class="form-control-static" id="sdate">2017-4-9</p></label>
+                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="sdate">2017-4-9</p></label>
                                 <label class="col-lg-2 control-label before" style="width: 120px">结束时间</label>
-                                <label class="col-lg-2 control-label after"style="width: 150px"><p class="form-control-static" id="edate">2017-4-10</p></label>
+                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="edate">2017-4-10</p></label>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">活动奖励</label>
-                                <label class="col-lg-2 control-label after"><p class="form-control-static" id="abonus" >100</p></label>
+                                <label class="col-lg-10 control-label after"><p class="form-control-static" id="bonus" >100</p></label>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-lg-2 control-label before">活动描述</label>
-                                <div class="col-lg-10">
-                                    <p class="form-control-static after" id="adesc"  >aaaaaaaaaaaaaaaaaaaaaa啊啊啊啊啊啊啊啊</p>
-                                </div>
+                                <label class="col-lg-2 control-label before"  style="width: 120px">活动描述</label>
+                                <label class="col-lg-10 control-label after">
+                                    <p class="form-control-static " id="adesc"  >啊啊啊啊啊啊啊</p>
+                                </label>
                             </div>
 
                             <button type="submit" class="btn  btn-sm pull-right short" style="margin-right: 10%" id="submit">参与</button>
@@ -68,9 +73,7 @@ if(!isset($_SESSION['id'])){
                             </thead>
                             <tbody id="j_list">
                             <tr>
-                                <td>1</td>
-                                <td>用户1</td>
-                                <td>1000</td>
+
                             </tr>
 
                             </tbody>
@@ -85,12 +88,12 @@ if(!isset($_SESSION['id'])){
 <?php include "middle.html";?>
     /*此处写js代码*/
     <script>
-        $(document).ready(function () {
+
                 var str = window.location.search;
                 var index = str.indexOf("=");
                 var aid = str.substring(index + 1);
                 aid=parseInt(aid);
-                var uid=$("#id").text();
+                var uid=$("#uid").text();
                 $.ajax("/api/activity/"+aid, {
                     type: 'GET',
                     async:false,
@@ -181,8 +184,8 @@ if(!isset($_SESSION['id'])){
                     }
                 });
 
-            }
-        );
+
+
     </script>
 
 <?php include "end.html";?>
