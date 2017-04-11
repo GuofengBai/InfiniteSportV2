@@ -6,15 +6,15 @@
  * Time: 20:34
  */
 
-    session_start();
+session_start();
 
-    //检测是否登录，若没登录则转向登录界面
-    if(!isset($_SESSION['id'])){
-        header("Location:index.html");
-        exit();
-    }
+//检测是否登录，若没登录则转向登录界面
+if (!isset($_SESSION['id'])) {
+    header("Location:index.html");
+    exit();
+}
 ?>
-    <?php include "head.html";?>
+<?php include "head.html"; ?>
 
     <div class="main-container">
         <div class="padding-md">
@@ -53,7 +53,7 @@
     </div>
 
 
-    <?php include "middle.html";?>
+<?php include "middle.html"; ?>
     <script>
 
         var str = window.location.search;
@@ -82,7 +82,7 @@
                                 temp = JSON.parse(td);
 
                                 var tb = "<li>" + "<div class=\"panel panel-default clearfix\">" +
-                                    "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=\"images/profile/profile4.jpg\" alt=\"\"> </div> <div class=\"user-detail small-img\">" +
+                                    "<div class=\"panel-body\"> <div class=\"user-wrapper\"> <div class=\"user-avatar\"> <img class=\"small-img img-circle img-thumbnail\" src=" + temp.avatar + " alt=\"\"> </div> <div class=\"user-detail small-img\">" +
                                     "<div class=\"font-16\">" + temp.name + "</div>" +
                                     "<small class=\"block text-muted font-12\">" + temp.job + "</small>" +
                                     "<div class=\"m-top-sm\">" +
@@ -103,4 +103,4 @@
         });
     </script>
 
-    <?php include "end.html";?>
+<?php include "end.html"; ?>
