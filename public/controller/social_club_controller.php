@@ -94,7 +94,7 @@ class social_club_controller
     }
 
     public function getMessages($owner,$friend){
-        $sql = "update chat set readed=true where receiver='$owner'";
+        $sql = "update chat set readed='true' where receiver='$owner'";
         $statement = $this->db->operate($sql);
         $sql ="select sender,receiver,content,stime from chat where (receiver='$friend' or receiver='$owner') and (sender='$friend' or sender='$owner') order by id asc";
         $statement = $this->db->find($sql);

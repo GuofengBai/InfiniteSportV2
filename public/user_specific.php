@@ -174,6 +174,54 @@ if(!isset($_SESSION['id'])){
                     </div><!-- ./smart-widget -->
                 </div>
             </div>
+	        <div class="col-lg-12">
+		        <div class="smart-widget widget-purple">
+			        <div class="smart-widget-header">
+				        <i class="fa fa-comment"></i> Chat
+				        <span class="smart-widget-option">
+												<span class="refresh-icon-animated">
+													<i class="fa fa-circle-o-notch fa-spin"></i>
+												</span>
+					                            <a href="#" class="widget-toggle-hidden-option">
+					                                <i class="fa fa-cog"></i>
+					                            </a>
+					                            <a href="#" class="widget-collapse-option" data-toggle="collapse">
+					                                <i class="fa fa-chevron-up"></i>
+					                            </a>
+					                        </span>
+			        </div>
+			        <div class="smart-widget-inner">
+				        <div class="smart-widget-hidden-section">
+					        <ul class="widget-color-list clearfix">
+						        <li style="background-color:#20232b;" data-color="widget-dark"></li>
+						        <li style="background-color:#4c5f70;" data-color="widget-dark-blue"></li>
+						        <li style="background-color:#23b7e5;" data-color="widget-blue"></li>
+						        <li style="background-color:#2baab1;" data-color="widget-green"></li>
+						        <li style="background-color:#edbc6c;" data-color="widget-yellow"></li>
+						        <li style="background-color:#fbc852;" data-color="widget-orange"></li>
+						        <li style="background-color:#e36159;" data-color="widget-red"></li>
+						        <li style="background-color:#7266ba;" data-color="widget-purple"></li>
+						        <li style="background-color:#f5f5f5;" data-color="widget-light-grey"></li>
+						        <li style="background-color:#fff;" data-color="reset"></li>
+					        </ul>
+				        </div>
+				        <div class="smart-widget-body">
+					        <div id="chatScroll">
+						        <ul class="chat" style="min-height:250px;overflow-y:auto;max-height:300px;" id="chat_list">
+						        </ul>
+					        </div>
+				        </div>
+				        <div class="smart-widget-footer">
+					        <div class="input-group">
+						        <input id="btn-input" type="text" class="form-control input-sm" placeholder="输入你想对他/她说的话……">
+						        <span class="input-group-btn">
+														<button class="btn btn-success btn-sm no-shadow" id="btn-chat">发送</button>
+													</span>
+					        </div><!-- /input-group -->
+				        </div><!-- ./smart-widget-footer -->
+			        </div><!-- ./smart-widget-inner -->
+		        </div><!-- ./smart-widget -->
+	        </div><!-- ./col -->
         </div><!-- ./padding-md -->
     </div><!-- /main-container -->
 <?php include "middle.html";?>
@@ -184,9 +232,10 @@ if(!isset($_SESSION['id'])){
     var str = window.location.search;
     var index = str.indexOf("=");
     var uid = str.substring(index + 1);
+    var l_avatar;
     $.ajax("/api/user/" + uid, {
         type: 'GET',
-        async: false,
+        async: true,
         datatype: 'json',
         success: function (result) {
 
@@ -198,14 +247,15 @@ if(!isset($_SESSION['id'])){
             $("#l_job").append("<i class=\"fa fa-briefcase user-profile-icon\"></i>" + data.job);
             $("#l_location").append("<i class=\"fa fa-map-marker user-profile-icon\" ></i>" + data.location);
             $('#l_avatar').append("<img src=" + data.avatar + ">");
+            l_avatar=data.avatar;
         }
     });
-
 </script>
 <script>
     id = $("#id").text();
     $.ajax("/api/user/" + uid + "/sport_record_total", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -216,6 +266,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/" + uid + "/sport_days", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -224,6 +275,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/" + uid + "/activity_todo/", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -232,6 +284,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/" + uid + "/activity/", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -240,6 +293,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/" + uid + "/following/", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -248,6 +302,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/" + uid + "/weekly_rank/", {
         type: 'GET',
+        async: true,
         datatype: 'json',
         success: function (result) {
             data = JSON.parse(result);
@@ -279,7 +334,7 @@ if(!isset($_SESSION['id'])){
     });
     $.ajax("/api/user/"+id+"/following/", {
         type: 'GET',
-        async:false,
+        async: true,
         datatype:'json',
         success: function (result) {
 
@@ -326,6 +381,60 @@ if(!isset($_SESSION['id'])){
             }
 
         }
+    });
+    $.ajax("/api/user/" + id + "/messages/"+uid+"/", {
+        type: 'GET',
+        async: true,
+        datatype: 'json',
+        success: function (result) {
+            data = JSON.parse(result);
+            toAppend="";
+            for(i=0;i<data.length;i++){
+                if(data[i].receiver==id){
+                    toAppend="<li class=\"left clearfix\">"+
+                    "<span class=\"chat-img pull-left\">"+
+                        "<img src=\""+l_avatar+"\" alt=\"User Avatar\">"+
+                        "</span>"+
+                        "<div class=\"chat-body clearfix\">"+
+                        "<div class=\"header\">"+
+                        "<strong class=\"primary-font\">"+uid+"</strong>"+
+                    "<small class=\"pull-right text-muted\"><i class=\"fa fa-clock-o\"></i>"+data[i].stime+"</small>"+
+                    "</div>"+
+                    "<p>"+data[i].content+"</p>"+
+                    "</div></li>";
+                }else{
+                    toAppend="<li class=\"right clearfix\">"+
+                        "<span class=\"chat-img pull-right\">"+
+                        "<img src=\""+$("#top_avatar").attr("src")+"\" alt=\"User Avatar\">"+
+                        "</span>"+
+                        "<div class=\"chat-body clearfix\">"+
+                        "<div class=\"header\">"+
+                        "<strong class=\"primary-font\">"+id+"</strong>"+
+                        "<small class=\"pull-right text-muted\"><i class=\"fa fa-clock-o\"></i>"+data[i].stime+"</small>"+
+                        "</div>"+
+                        "<p>"+data[i].content+"</p>"+
+                        "</div></li>";
+                }
+                $("#chat_list").append(toAppend);
+            }
+        }
+    });
+    $("#btn-chat").click(function (){
+        val = {
+            content: $("#btn-input").val()
+        };
+        $.ajax("/api/user/"+id+"/messages/"+uid+"/", {
+            type: 'POST',
+            data: val,
+            dataType: 'json',
+            success: function (result) {
+                if(result.status=="ok"){
+                    location.reload();
+                }else{
+                    alert("发送失败");
+                }
+            }
+        });
     });
 </script>
 <?php include "end.html";?>
