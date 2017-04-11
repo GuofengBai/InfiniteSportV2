@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c9e4aac1-4c0a-4a0f-abca-b1e704d4e0ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controller/user_controller.php" afterPath="$PROJECT_DIR$/public/controller/user_controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controller/data_insert.php" afterPath="$PROJECT_DIR$/public/controller/data_insert.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/login.html" afterPath="$PROJECT_DIR$/public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/main.php" afterPath="$PROJECT_DIR$/public/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/route/index.php" afterPath="$PROJECT_DIR$/public/route/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web.db" afterPath="$PROJECT_DIR$/web.db" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,16 +69,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="middle.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/middle.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user_specific.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/user_specific.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,13 +79,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="400">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#1099#1107#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_insert.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/controller/data_insert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2139">
+              <caret line="93" column="31" lean-forward="true" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+              <folding>
+                <marker date="1491886800669" expanded="true" signature="1100:1277" ph="insert into user... " />
+                <marker date="1491886800669" expanded="true" signature="1763:1878" ph="INSERT INTO sport_record... " />
+                <marker date="1491886800669" expanded="true" signature="2359:2443" ph="INSERT INTO weight_record... " />
+                <marker date="1491886800669" expanded="true" signature="2924:3040" ph="INSERT INTO sleep_record... " />
               </folding>
             </state>
           </provider>
@@ -108,8 +109,8 @@
       <file leaf-file-name="user_controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/controller/user_controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+            <state relative-caret-position="391">
+              <caret line="71" column="133" lean-forward="false" selection-start-line="71" selection-start-column="108" selection-end-line="71" selection-end-column="133" />
               <folding>
                 <marker date="1491883000914" expanded="true" signature="330:388" ph="select * fro... user" />
                 <marker date="1491883000914" expanded="true" signature="944:1012" ph="select id,na... user" />
@@ -146,7 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sim</find>
       <find>User Profile</find>
       <find>email@example.com</find>
       <find>Pagination</find>
@@ -170,11 +170,13 @@
       <find>m</find>
       <find>id</find>
       <find>&quot;id&quot;</find>
-      <find>submit</find>
       <find>updateuser</find>
       <find>updateUser</find>
       <find>#name</find>
       <find>submit1</find>
+      <find>submit</find>
+      <find>活动</find>
+      <find>$j</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,6 +222,7 @@
         <option value="$PROJECT_DIR$/public/main.php" />
         <option value="$PROJECT_DIR$/public/login.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/controller/data_insert.php" />
       </list>
     </option>
   </component>
@@ -439,28 +442,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/activity_all.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/activity_new.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/activity_specific.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/all_activity.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/combineTest.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/head.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/health_detection.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/main.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/middle.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_activity.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_activity_test.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_health.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_setting.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_sport.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_sports.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/new_activity.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/profile_new.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/route/index.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/user_search.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/user_specific.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web.db</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -468,7 +452,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/login.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/system_info.php</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -476,37 +460,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/all_activity.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/blank.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/blog.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/button.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/calendar.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/datatable.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/dropzone.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/error404.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/form_element.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/form_validation.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/form_wizard.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/gallery.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/inbox.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/invoice.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/lockscreen.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/my_activity.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/nestable_list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/new_activity.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pricing.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/profile.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/purified_template.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/screenshot.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/signin.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/single_post.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/static_table.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/tab.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/timeline.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/treeview.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/ui_element.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/uploadTest.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/widget.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -974,7 +927,7 @@
       <workItem from="1491803528379" duration="3679000" />
       <workItem from="1491812289691" duration="3511000" />
       <workItem from="1491829124776" duration="5118000" />
-      <workItem from="1491882203108" duration="2005000" />
+      <workItem from="1491882203108" duration="4608000" />
     </task>
     <task id="LOCAL-00001" summary="new page">
       <created>1491730518583</created>
@@ -1053,11 +1006,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491837367863</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix bug(unfinished)">
+      <created>1491884226098</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1491884226098</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31535000" />
+    <option name="totallyTimeSpent" value="34138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1052" extended-state="6" />
@@ -1071,7 +1031,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32745314" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32745314" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1079,7 +1039,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2633547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1108,43 +1068,14 @@
     <MESSAGE value="php" />
     <MESSAGE value="api接口由axy14改为session-&gt;id，等待登录成功后测试" />
     <MESSAGE value="模板化" />
-    <option name="LAST_COMMIT_MESSAGE" value="模板化" />
+    <MESSAGE value="fix bug(unfinished)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug(unfinished)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/datatable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/new-activity.html" />
-    <entry file="file://$PROJECT_DIR$/public/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/form_element.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35074">
-          <caret line="1846" column="7" lean-forward="false" selection-start-line="660" selection-start-column="12" selection-end-line="1846" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/datatable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/new-activity.html" />
     <entry file="file://$PROJECT_DIR$/public/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -1421,24 +1352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controller/user_controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
-          <folding>
-            <marker date="1491883000914" expanded="true" signature="330:388" ph="select * fro... user" />
-            <marker date="1491883000914" expanded="true" signature="944:1012" ph="select id,na... user" />
-            <marker date="1491883000914" expanded="true" signature="1285:1494" ph="select id,na... user" />
-            <marker date="1491883000914" expanded="true" signature="1688:1949" ph="select id,na... user" />
-            <marker date="1491883000914" expanded="true" signature="2237:2354" ph="insert into user... " />
-            <marker date="1491883000914" expanded="true" signature="2664:2773" ph="update user " />
-            <marker date="1491883000914" expanded="true" signature="3056:3103" ph="update user " />
-            <marker date="1491883000914" expanded="true" signature="3390:3443" ph="select * fro... user" />
-            <marker date="1491883000914" expanded="true" signature="3584:3630" ph="update user " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/route/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -1475,12 +1388,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/webslides.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="859" column="75" lean-forward="false" selection-start-line="859" selection-start-column="75" selection-end-line="859" selection-end-column="75" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery-1.11.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="2" column="4455" lean-forward="false" selection-start-line="2" selection-start-column="4455" selection-end-line="2" selection-end-column="4455" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controller/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-467">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="400">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#1099#1107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controller/activity_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-759">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491829115860" expanded="true" signature="341:363" ph="select * fro... activity" />
+            <marker date="1491829115860" expanded="true" signature="639:788" ph="select A.id,... activity" />
+            <marker date="1491829115860" expanded="true" signature="1235:1380" ph="insert into activity... " />
+            <marker date="1491829115860" expanded="true" signature="1573:1608" ph="select max(i... activity" />
+            <marker date="1491829115860" expanded="true" signature="1767:1837" ph="insert into user_activity... " />
+            <marker date="1491829115860" expanded="true" signature="2242:2283" ph="delete from " />
+            <marker date="1491829115860" expanded="true" signature="2476:2511" ph="delete from " />
+            <marker date="1491829115860" expanded="true" signature="3079:3149" ph="insert into user_activity... " />
+            <marker date="1491829115860" expanded="true" signature="3342:3385" ph="select bonus... activity" />
+            <marker date="1491829115860" expanded="true" signature="3712:3769" ph="delete from " />
+            <marker date="1491829115860" expanded="true" signature="7087:7224" ph="select id,st... activity" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controller/user_controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="71" column="133" lean-forward="false" selection-start-line="71" selection-start-column="108" selection-end-line="71" selection-end-column="133" />
+          <folding>
+            <marker date="1491883000914" expanded="true" signature="330:388" ph="select * fro... user" />
+            <marker date="1491883000914" expanded="true" signature="944:1012" ph="select id,na... user" />
+            <marker date="1491883000914" expanded="true" signature="1285:1494" ph="select id,na... user" />
+            <marker date="1491883000914" expanded="true" signature="1688:1949" ph="select id,na... user" />
+            <marker date="1491883000914" expanded="true" signature="2237:2354" ph="insert into user... " />
+            <marker date="1491883000914" expanded="true" signature="2664:2773" ph="update user " />
+            <marker date="1491883000914" expanded="true" signature="3056:3103" ph="update user " />
+            <marker date="1491883000914" expanded="true" signature="3390:3443" ph="select * fro... user" />
+            <marker date="1491883000914" expanded="true" signature="3584:3630" ph="update user " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="455" column="9" lean-forward="false" selection-start-line="455" selection-start-column="9" selection-end-line="455" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controller/data_insert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2139">
+          <caret line="93" column="31" lean-forward="true" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+          <folding>
+            <marker date="1491886800669" expanded="true" signature="1100:1277" ph="insert into user... " />
+            <marker date="1491886800669" expanded="true" signature="1763:1878" ph="INSERT INTO sport_record... " />
+            <marker date="1491886800669" expanded="true" signature="2359:2443" ph="INSERT INTO weight_record... " />
+            <marker date="1491886800669" expanded="true" signature="2924:3040" ph="INSERT INTO sleep_record... " />
           </folding>
         </state>
       </provider>
