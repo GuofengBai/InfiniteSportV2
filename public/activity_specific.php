@@ -155,7 +155,8 @@ if(!isset($_SESSION['id'])){
                                             type: 'DELETE',
                                             async:false,
                                             success: function (result) {
-                                                window.location.reload();
+                                                window.location.href="activity_specific.php?aid="+aid;
+                                                window.event.returnValue = false;
                                             }
                                         });
                                     });
@@ -169,10 +170,8 @@ if(!isset($_SESSION['id'])){
                                             async:false,
                                             success: function (result) {
 
-                                                window.location.reload();
-
-
-
+                                                window.location.href="activity_specific.php?aid="+aid;
+                                                window.event.returnValue = false;
                                             }
                                         });
                                     });
