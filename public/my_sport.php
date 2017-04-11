@@ -32,58 +32,35 @@ if(!isset($_SESSION['id'])){
         <div class="row m-top-md">
 
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        运动总距离
+            <div class="col-sm-3 col-sms-6">
+                <div class="widget-stat3 bg-info">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-road fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="t_miles">
-                        1082千米
-                    </div>
-
-
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-road"></i>
-                    </div>
+                    <div class="text-upper">运动总距离</div>
+                    <div class="text-center" id="t_miles"></div>
                 </div>
             </div>
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        运动总时长
+            <div class="col-sm-3 col-sm-6s">
+                <div class="widget-stat3 bg-primary">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-clock-o fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="t_days">
-                        158天
-                    </div>
-
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-clock-o"></i>
-                    </div>
+                    <div class="text-upper">运动总天数</div>
+                    <div class="text-center" id="t_days"></div>
                 </div>
             </div>
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        燃烧卡路里
+            <div class="col-sm-3 col-sm-6s">
+                <div class="widget-stat3 bg-danger">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-fire fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="t_calorie">
-                        672大卡
-                    </div>
-
-
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-fire"></i>
-                    </div>
+                    <div class="text-upper">燃烧卡路里</div>
+                    <div class="text-center" id="t_calorie"></div>
                 </div>
-            </div>
+            </div><!-- ./col -->
 
             <div class="row">
                 <div class="col-lg-12">
@@ -100,59 +77,36 @@ if(!isset($_SESSION['id'])){
                 </div><!-- ./col -->
             </div>
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        本周运动总距离
+            <div class="col-sm-3 col-sms-6">
+                <div class="widget-stat3 bg-info">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-road fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="w_miles">
-                        15千米
-                    </div>
-
-                    <div class="m-top-md">比上周 少 27%</div>
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-road"></i>
-                    </div>
+                    <div class="text-upper">本周运动总距离</div>
+                    <div class="text-center" id="w_miles"></div>
                 </div>
             </div>
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        本周运动总步数
+            <div class="col-sm-3 col-sm-6s">
+                <div class="widget-stat3 bg-primary">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-male fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="w_steps">
-                        38000步
-                    </div>
-
-                    <div class="m-top-md">比上周 少 13%</div>
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-male"></i>
-                    </div>
+                    <div class="text-upper">本周运动总步数</div>
+                    <div class="text-center" id="w_steps"></div>
                 </div>
-            </div>
+            </div><!-- ./col -->
 
-            <div class="col-lg-0 col-sm-3">
-                <div class="statistic-box m-bottom-md">
-                    <div class="statistic-title">
-                        本周燃烧卡路里
+            <div class="col-sm-3 col-sm-6s">
+                <div class="widget-stat3 bg-danger">
+                    <div class="widget-stat-icon">
+                        <i class="fa fa-fire fa-3x"></i>
                     </div>
-
-                    <div class="statistic-value" id="w_calorie">
-                        9大卡
-                    </div>
-
-                    <div class="m-top-md">比上周 少 26%</div>
-
-                    <div class="statistic-icon-background">
-                        <i class="fa fa-fire"></i>
-                    </div>
+                    <div class="text-upper">本周燃烧卡路里</div>
+                    <div class="text-center" id="w_calorie"></div>
                 </div>
-            </div>
+            </div><!-- ./col -->
+
             <div class="col-md-4">
                 <div id="target" style="width:30rem;height:30rem;"></div>
             </div>
@@ -163,7 +117,7 @@ if(!isset($_SESSION['id'])){
                     <div class="col-sm-5">
                         <h1>设置目标</h1>
                     </div>
-                    <h1 class="col-sm-6" id="oldtarget">
+                    <h1 class="col-sm-7" id="oldtarget">
                         40千米
                     </h1>
                     <div class="col-lg-12" style="height: 3rem;"></div>
@@ -246,7 +200,7 @@ if(!isset($_SESSION['id'])){
         success: function (result) {
             data=JSON.parse(result);
             weekly_goal=data.goal;
-            $("#oldtarget").html(data.goal||'1'+"千米");
+            $("#oldtarget").html((data.goal||'1')+"千米");
         }
     });
     var start;
