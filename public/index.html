@@ -24,7 +24,7 @@
               <ul class="flexblock">
                 <li><input type="text" id="userid" placeholder="账号" required></li>
                 <li><input type="password" id="password" placeholder="密码" required></li>
-                <li><button id="submit" class="radius">登录 &rsaquo;</button></li>
+                <li><button id="submit1" class="radius">登录 &rsaquo;</button></li>
               </ul>
             </form>
           </div>
@@ -74,7 +74,7 @@
     </script>
 
     <script>
-        $("#submit").click(function () {
+        $("#submit1").click(function () {
             val = {
                 id: $("#userid").val(),
                 password: $("#password").val()
@@ -85,7 +85,8 @@
                 dataType: 'json',
                 success: function (result) {
                     if(result.status=="ok"){
-                        self.location="main.php";
+                        alert("登陆成功");
+                        window.location.href="main.php";
                     }else{
                         alert("登录失败，请检查账号与密码。");
                     }
