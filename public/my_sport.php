@@ -191,7 +191,7 @@ if(!isset($_SESSION['id'])){
 
 			                        </span>
                     </div>
-                    <div id="steps_chart" style="width: 100%;height:50rem;">
+                    <div id="steps_chart" style="width: 100%;height:25rem;">
 
                     </div><!-- ./smart-widget-inner -->
                 </div><!-- ./smart-widget -->
@@ -249,6 +249,8 @@ if(!isset($_SESSION['id'])){
             $("#oldtarget").html(data.goal+"千米");
         }
     });
+    var start;
+    var end;
 
     $.ajax("/api/user/"+id+"/sport_record/", {
         type: 'GET',
@@ -256,8 +258,9 @@ if(!isset($_SESSION['id'])){
         success: function (result) {
             sd=JSON.parse(result);
             data=[];
-            var start = sd[0].publish_data;
-            var end = sd[sd.length-1].publish_data;
+            var dayTime = 3600 * 24 * 1000;
+            end = +echarts.number.parseDate(sd[sd.length-1].publish_date);
+            start = end-dayTime*270;
             for(i=0;i<sd.length;i++){
                 data.push([sd[i].publish_date,sd[i].steps]);
             }
@@ -290,7 +293,7 @@ if(!isset($_SESSION['id'])){
                 calendar: [{
                     top: 100,
                     left: 'center',
-                    range: ['2016-1-1', '2016-6-30'],
+                    range: [start, end],
                     splitLine: {
                         show: true,
                         lineStyle: {
@@ -301,31 +304,6 @@ if(!isset($_SESSION['id'])){
                     },
                     yearLabel: {
                         formatter: '{start}  1st',
-                        textStyle: {
-                            color: '#000'
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: '#fdfff4',
-                            borderWidth: 1,
-                            borderColor: '#111'
-                        }
-                    }
-                }, {
-                    top: 340,
-                    left: 'center',
-                    range: ['2016-07-01', '2016-12-31'],
-                    splitLine: {
-                        show: true,
-                        lineStyle: {
-                            color: '#000',
-                            width: 4,
-                            type: 'solid'
-                        }
-                    },
-                    yearLabel: {
-                        formatter: '{start}  2nd',
                         textStyle: {
                             color: '#000'
                         }
@@ -354,49 +332,10 @@ if(!isset($_SESSION['id'])){
                         }
                     },
                     {
-                        name: '步数',
-                        type: 'scatter',
-                        coordinateSystem: 'calendar',
-                        calendarIndex: 1,
-                        data: data,
-                        symbolSize: function (val) {
-                            return val[1] / 1000;
-                        },
-                        itemStyle: {
-                            normal: {
-                                color: '#66ccff'
-                            }
-                        }
-                    },
-                    {
                         name: 'Top 12',
                         type: 'effectScatter',
                         coordinateSystem: 'calendar',
                         calendarIndex: 1,
-                        data: data.sort(function (a, b) {
-                            return b[1] - a[1];
-                        }).slice(0, 12),
-                        symbolSize: function (val) {
-                            return val[1] / 1000;
-                        },
-                        showEffectOn: 'render',
-                        rippleEffect: {
-                            brushType: 'stroke'
-                        },
-                        hoverAnimation: true,
-                        itemStyle: {
-                            normal: {
-                                color: '#48f400',
-                                shadowBlur: 10,
-                                shadowColor: '#333'
-                            }
-                        },
-                        zlevel: 1
-                    },
-                    {
-                        name: 'Top 12',
-                        type: 'effectScatter',
-                        coordinateSystem: 'calendar',
                         data: data.sort(function (a, b) {
                             return b[1] - a[1];
                         }).slice(0, 12),
