@@ -124,7 +124,6 @@
                 async:false,
                 datatype:'json',
                 success: function (result) {
-                    alert("活动创建成功");
                     window.location.href="my_activity.php";
                     window.event.returnValue = false;
 

@@ -125,7 +125,6 @@ if(!isset($_SESSION['id'])){
                                     type: 'DELETE',
                                     async:false,
                                     success: function (result) {
-                                        alert("删除成功");
                                         window.location.href="my_activity.php";
                                         window.event.returnValue = false;
                                     }
@@ -156,9 +155,7 @@ if(!isset($_SESSION['id'])){
                                             type: 'DELETE',
                                             async:false,
                                             success: function (result) {
-                                                alert("退出成功");
-                                                window.location.href="my_activity.php";
-                                                window.event.returnValue = false;
+                                                window.location.reload();
                                             }
                                         });
                                     });
@@ -171,9 +168,8 @@ if(!isset($_SESSION['id'])){
                                             data:{a_id:aid},
                                             async:false,
                                             success: function (result) {
-                                                alert("加入成功");
-                                                window.location.href="my_activity.php";
-                                                window.event.returnValue = false;
+
+                                                window.location.reload();
 
 
 
