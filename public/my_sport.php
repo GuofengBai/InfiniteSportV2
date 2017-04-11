@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by IntelliJ IDEA.
  * User: baiguofeng
@@ -191,7 +191,7 @@ if(!isset($_SESSION['id'])){
 
 			                        </span>
                     </div>
-                    <div id="steps_chart" style="width: 100%;height:25rem;">
+                    <div id="steps_chart" style="height:25rem;">
 
                     </div><!-- ./smart-widget-inner -->
                 </div><!-- ./smart-widget -->
@@ -210,8 +210,8 @@ if(!isset($_SESSION['id'])){
         datatype: 'json',
         success: function (result) {
             data=JSON.parse(result);
-            $("#t_miles").html(data.t_miles+"千米");
-            $("#t_calorie").html(data.t_calorie+"大卡");
+            $("#t_miles").html((data.t_miles||'0')+"千米");
+            $("#t_calorie").html((data.t_calorie||'0')+"大卡");
         }
     });
     $.ajax("/api/user/"+id+"/sport_days", {
@@ -219,7 +219,7 @@ if(!isset($_SESSION['id'])){
         datatype: 'json',
         success: function (result) {
             data=JSON.parse(result);
-            $("#t_days").html(data.t_days+"天");
+            $("#t_days").html((data.t_days||'0')+"天");
         }
     });
     var weekly_miles=0;
@@ -232,9 +232,9 @@ if(!isset($_SESSION['id'])){
             if(weekly_miles==null){
                 weekly_miles=100;
             }
-            $("#w_steps").html(data.w_steps+"步");
-            $("#w_miles").html(data.w_miles+"千米");
-            $("#w_calorie").html(data.w_calorie+"大卡");
+            $("#w_steps").html((data.w_steps||'0')+"步");
+            $("#w_miles").html((data.w_miles||'0')+"千米");
+            $("#w_calorie").html((data.w_calorie||'0')+"大卡");
         }
     });
 
@@ -246,7 +246,7 @@ if(!isset($_SESSION['id'])){
         success: function (result) {
             data=JSON.parse(result);
             weekly_goal=data.goal;
-            $("#oldtarget").html(data.goal+"千米");
+            $("#oldtarget").html(data.goal||'1'+"千米");
         }
     });
     var start;
@@ -269,7 +269,7 @@ if(!isset($_SESSION['id'])){
             myChart = echarts.init(document.getElementById("steps_chart"));
 
             option = {
-                backgroundColor: 'fff',
+                backgroundColor: '#f5f5f5',
 
                 title: {
                     top: 30,
