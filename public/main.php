@@ -177,7 +177,7 @@ if (!isset($_SESSION['id'])) {
                                                         </div>
                                                     </div><!-- ./col -->
                                                 </div>
-                                                <div class="panel panel-default m-top-md">
+                                                <div class="panel panel-default m-top-md" style="width: 47%;float: right">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-twitter"></i> 周排名
                                                     </div>
@@ -454,8 +454,9 @@ if (!isset($_SESSION['id'])) {
             success: function (result) {
                 data = JSON.parse(result);
                 for (i = 0; i < data.length; i++) {
-                    var td = "<li><p>" +
-                        data.id + "</p></li>";
+
+                    var td = "<li><div style='font-size: 1.5rem;' class=\"panel-heading\">" +
+                        data[i].id + "</div></li>";
                     $("#friend_rank").append(td);
                 }
                 if (data.length == 0) {
