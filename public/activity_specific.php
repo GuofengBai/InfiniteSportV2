@@ -33,26 +33,26 @@ if(!isset($_SESSION['id'])){
                         <form class="form-horizontal m-top-md">
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">发起人</label>
-                                <label class="col-lg-10 control-label after" ><a id="acreator">用户1</a></label>
+                                <label class="col-lg-3 control-label after" ><p style="text-align: left"><a id="acreator" >用户1</a></p></label>
 
                             </div><!-- /form-group -->
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">开始时间</label>
-                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="sdate">2017-4-9</p></label>
+                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="sdate" style="text-align: left">2017-4-9</p></label>
                                 <label class="col-lg-2 control-label before" style="width: 120px">结束时间</label>
-                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="edate">2017-4-10</p></label>
+                                <label class="col-lg-4 control-label after"style="width: 150px"><p class="form-control-static" id="edate" style="text-align: left">2017-4-10</p></label>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before" style="width: 120px">活动奖励</label>
-                                <label class="col-lg-10 control-label after"><p class="form-control-static" id="bonus" >100</p></label>
+                                <label class="col-lg-3 control-label after"><p class="form-control-static" id="bonus" style="text-align: left">100</p></label>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label before"  style="width: 120px">活动描述</label>
                                 <label class="col-lg-10 control-label after">
-                                    <p class="form-control-static " id="adesc"  >啊啊啊啊啊啊啊</p>
+                                    <p class="form-control-static " id="adesc" style="text-align: left" >啊啊啊啊啊啊啊</p>
                                 </label>
                             </div>
 

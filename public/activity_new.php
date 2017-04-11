@@ -53,28 +53,33 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label before2">活动名称</label>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control after2" id="aname" required="required" maxlength="10" style="width:250px">
+                                    <input type="text" class="form-control after2" id="aname" required="required" maxlength="10" style="width:300px">
                                 </div>
                             </div><!-- /form-group -->
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label before2">开始时间</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control after2" id="astart" required="required" style="width:250px">
+                                    <input type="date" class="form-control after2" id="astart" required="required" style="width:300px">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label before2">结束时间</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control after2" id="aend" required="required" style="width:250px">
+                                    <input type="date" class="form-control after2" id="aend" required="required" style="width:300px">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label before2">活动奖励</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control after2" required="required" id="abonus"  maxlength="10" style="width:250px">
+                                <div class="col-sm-5">
+                                    <input type="number" class="form-control after2" required="required" id="abonus"  maxlength="10" style="width:300px">
+
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="control-label " style="text-align: left"><a href="system_info.php">奖励是什么？</a></label>
+
                                 </div>
                             </div>
 
