@@ -289,7 +289,7 @@ if(!isset($_SESSION['id'])){
                         name: 'Top 12',
                         type: 'effectScatter',
                         coordinateSystem: 'calendar',
-                        calendarIndex: 1,
+                        
                         data: data.sort(function (a, b) {
                             return b[1] - a[1];
                         }).slice(0, 12),

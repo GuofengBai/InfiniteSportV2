@@ -192,8 +192,8 @@ function insertSleepaxy()
 
     $k1 = 0;
     $stand2 = 420;
-    for ($j = strtotime('2016-09-11'); $j < strtotime('2017-02-12'); $j += 86400) {
-        $y = mktime(0, 0, 0, 03, 11, 2017);
+    for ($j = strtotime('2017-02-12'); $j < strtotime('2017-03-12'); $j += 86400) {
+        $y = mktime(0, 0, 0, 02 ,12, 2017);
         $t = date("Y-m-d", $y + $k1 * 24 * 3600);
         $full_sleep = $stand2 + rand(30, 60) - rand(30, 60);
         $deep_sleep = $full_sleep - rand(100, 150);
