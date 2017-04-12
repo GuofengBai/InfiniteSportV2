@@ -229,9 +229,13 @@ if(!isset($_SESSION['id'])){
 
 
 <script>
+    id=$("#id").text();
     var str = window.location.search;
     var index = str.indexOf("=");
     var uid = str.substring(index + 1);
+    if(id==uid){
+        window.location.href="main.php";
+    }
     var l_avatar;
     $.ajax("/api/user/" + uid, {
         type: 'GET',
