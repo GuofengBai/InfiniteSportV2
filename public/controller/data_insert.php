@@ -153,11 +153,13 @@ function insertWeightbgf()
     $db = database::getInstance();
 
     $k = 0;
-    $wei = 80;
-    for ($j = strtotime('2017-01-01'); $j < strtotime('2017-02-11'); $j += 86400) {
-        $y = mktime(0, 0, 0, 01, 01, 2017);
+    $wei = 95;
+    for ($j = strtotime('2017-02-11'); $j < strtotime('2017-04-11'); $j += 86400) {
+        $y = mktime(0, 0, 0, 02, 11, 2017);
         $t = date("Y-m-d", $y + $k * 24 * 3600);
-        $weight = ceil($wei + rand(0, 4) + 0.3 * $k);
+        $weight = $wei + rand(0, 4) + -rand(0,4);
+        if($k>30)
+            $weight=ceil($wei-0.6*($k-30)+ rand(0, 4) + -rand(0,4));
         $id = "bgf14";
         $sql = "INSERT INTO weight_record(ownerid,publish_date,weight) VALUES ('$id','$t','$weight');";
         $db->operate($sql);
@@ -217,4 +219,4 @@ function insertGoal()
 }
 
 
-insertSportsbgf();
+insertWeightbgf();
