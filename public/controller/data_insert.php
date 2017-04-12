@@ -97,11 +97,11 @@ function insertSportsbgf()
     $footstep = 2200;
     $k = 0;
     for ($j = strtotime('2017-02-11'); $j < strtotime('2017-03-12'); $j += 86400) {
-        $y = mktime(0, 0, 0, 03, 11, 2017);
+        $y = mktime(0, 0, 0, 02, 11, 2017);
         $t = date("Y-m-d", $y + $k * 24 * 3600);
         $miles = rand(8, 9);
         if ($k >= 20)
-            $miles = rand(1, 2);
+            $miles = rand(2, 3);
         $calorie = ceil($miles * randomFloat(55, 65));
         $steps = $miles * $footstep + rand(20, 120);
         $id = "bgf14";
@@ -217,4 +217,4 @@ function insertGoal()
 }
 
 
-insertSleepaxy();
+insertSportsbgf();
