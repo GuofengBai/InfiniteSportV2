@@ -191,11 +191,11 @@ function insertSleepaxy()
 
 
     $k1 = 0;
-    $stand2 = 420;
+    $stand2 = 240;
     for ($j = strtotime('2017-02-12'); $j < strtotime('2017-03-12'); $j += 86400) {
         $y = mktime(0, 0, 0, 02 ,12, 2017);
         $t = date("Y-m-d", $y + $k1 * 24 * 3600);
-        $full_sleep = $stand2 + rand(30, 60) - rand(30, 60);
+        $full_sleep = $stand2 + rand(30, 60) +$k1*rand(5,7);
         $deep_sleep = $full_sleep - rand(100, 150);
         $id = "axy14";
         $sql = "INSERT INTO sleep_record(ownerid,publish_date,full_sleep,deep_sleep) VALUES ('$id','$t','$full_sleep','$deep_sleep');";
@@ -217,4 +217,4 @@ function insertGoal()
 }
 
 
-insertWeightbgf();
+insertSleepaxy();
